@@ -22,7 +22,7 @@ NAME:= ft_printflib.a
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	ar -rcs $(NAME) -o  $(OBJS)
+	ar -rcs $(NAME)   $(OBJS)
 
 # %.o: %.c
 # 	$(CC) $(FLAGS) -c $< -o $@

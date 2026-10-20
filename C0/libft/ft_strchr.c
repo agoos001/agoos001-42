@@ -16,7 +16,7 @@ char	*ft_strchr(const char *s, int c)
 {
 	while (*s)
 	{
-		if (*s == (char)c)
+		if (*s == ((char)c))
 			return ((char *)s);
 		s++;
 	}
@@ -24,11 +24,19 @@ char	*ft_strchr(const char *s, int c)
 		return ((char *)s);
 	return (NULL);
 }
-/*
-#include <stdio.h>
-int main()
-{
-	char *str = "the best is goos";
-	char *result = ft_strchr(str, 0);
-	printf("result : %c \n", *result);
-}*/
+
+// #include <string.h>
+// #include <stdio.h>
+// int main()
+// {
+// 	char *result;
+// 	char *str = "ü";
+//
+// 	result = ft_strchr(str, 129);
+// 	printf("result : %c \n", *result);
+//
+// 	// result = strchr(str, 129);
+// 	// printf("result : %c \n", *result);
+//
+// 	return (0);
+// }

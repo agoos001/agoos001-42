@@ -23,10 +23,7 @@ void	*ft_calloc(size_t n, size_t size)
 	total = size * n;
 	if (!total)
 	{
-		result = malloc(1);
-		if (!result)
-			return (NULL);
-		return (result);
+		total = 1;
 	}
 	result = malloc(total);
 	if (!result)

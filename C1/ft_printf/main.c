@@ -2,6 +2,7 @@
 
 int main()
 {
-	ft_printf("agoos");
+	// ft_printf("agoos");
+	printf("#agoos");
 	return (0);
 }

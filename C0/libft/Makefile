@@ -10,8 +10,8 @@
 #                                                                              #
 # **************************************************************************** #
 
-CC		= cc
-CFLAGS	= -Wall -Werror -Wextra
+CC=: cc
+CFLAGS=: -Wall -Werror -Wextra
 
 SRC	= ft_atoi.c     ft_isprint.c  ft_memset.c      ft_strdup.c   ft_strnstr.c \
 	  ft_bzero.c    ft_itoa.c     ft_putchar_fd.c  ft_strjoin.c  ft_strrchr.c \
@@ -23,9 +23,9 @@ SRC	= ft_atoi.c     ft_isprint.c  ft_memset.c      ft_strdup.c   ft_strnstr.c \
 	  ft_lstnew.c   ft_lstadd_front.c ft_lstadd_back.c ft_lstsize.c ft_striteri.c\
 	  ft_lstlast.c  ft_lstdelone.c   ft_lstclear.c    ft_lstiter.c
 
-OBJS	= $(SRC:.c=.o)
-NAME	= libft.a
-HDRS	= libft.h
+OBJS= $(SRC:.c=.o)
+NAME= libft.a
+HDRS= libft.h
 
 all: $(NAME)
 

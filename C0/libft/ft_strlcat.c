@@ -12,19 +12,23 @@
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *dst, const char *src, size_t size)
+size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
 	size_t	dst_len;
 	size_t	i;
+	size_t	src_len;
 
-	if (!size)
+	if (!dstsize)
 		return (ft_strlen(src));
 	dst_len = ft_strlen(dst);
-	if (dst_len >= size)
-		return (ft_strlen(src) + size);
+	src_len = ft_strlen(src);
+	if (dst_len >= dstsize)
+		return (ft_strlen(src) + dstsize);
 	i = 0;
-	size = size - dst_len - 1;
-	while (i < size && src[i])
+	dstsize = dstsize - dst_len - 1;
+	if (dstsize > src_len)
+		dstsize = src_len;
+	while (i < dstsize && src[i])
 	{
 		dst[dst_len + i] = src[i];
 		i++;
@@ -32,3 +36,21 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	dst[dst_len + i] = '\0';
 	return (dst_len + ft_strlen(src));
 }
+//
+//
+// #include<stdio.h>	
+// #include <string.h>
+// int main() 
+// {
+//
+// 	char mem[128] = "Hello ";
+// 	ft_strlcat(mem, mem, 128);
+// 	printf("cpy: %s \n", mem);
+//
+// 	#undef strlcat
+//
+// 	char mem1[128] = "Hello ";
+// 	strlcat(mem1, mem1, 128);
+// 	printf("org: %s \n", mem1);
+// }
+//
