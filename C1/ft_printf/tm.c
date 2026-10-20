@@ -3,7 +3,7 @@
 int main()
 {
 
-	printf("%+20d", 42);
+	printf("-+%c", 'f');
 
 	return (0);
 }
