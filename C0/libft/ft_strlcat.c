@@ -18,34 +18,38 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 	size_t	i;
 	size_t	src_len;
 
-	dst_len = ft_strlen(dst);
 	src_len = ft_strlen(src);
-	if (!dstsize || dst_len >= dstsize)
-		return (dst_len + src_len);
+	if (!dstsize)
+		return (src_len);
+	dst_len = ft_strlen(dst);
+	if (dst_len >= dstsize)
+		return (dstsize + src_len);
 	i = 0;
 	dstsize = dstsize - dst_len - 1;
 	if (dstsize > src_len)
 		dstsize = src_len;
-	while (i < dstsize && src[i])
+	while (i < dstsize)
 	{
 		dst[dst_len + i] = src[i];
 		i++;
 	}
 	dst[dst_len + i] = '\0';
-	return (dst_len + ft_strlen(src));
+	return (dst_len + src_len);
 }
 // #include<stdio.h>	
 // #include <string.h>
 // int main() 
 // {
 //
-// 	char mem[13] = "Hello ";
-// 	ft_strlcat(mem, mem, 13);
-// 	printf("cpy: %s\n", mem);
+// 	char mem[60] = "Hello ";
+// 	char dst[20] = "agoos ";
+// 	int result = ft_strlcat(dst, mem, 0);
+// 	printf("cpy: %s result: %d\n", mem, result);
 //
 // 	#undef strlcat
 // 	char mem1[12] = "Hello ";
-// 	strlcat(mem1, mem1, 12);
-// 	printf("org: %s\n", mem1);
+// 	char dst1[20] = "agoos ";
+// 	result = strlcat(dst1, mem1, 0);
+// 	printf("org: %s result: %d\n", mem1, result);
 // }
 // agoos is the best

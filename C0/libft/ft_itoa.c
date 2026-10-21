@@ -57,8 +57,6 @@ char	*ft_itoa(int n)
 }
 // #include <stdio.h>
 // #include <limits.h>
-// #include < 
-//
 //
 // int main()
 // {
