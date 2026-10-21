@@ -20,6 +20,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 
 	if (!s1 || !set)
 		return (NULL);
+	if (!(*s1))
+		return (ft_strdup(""));
 	first = 0;
 	while (s1[first] && ft_strchr(set, s1[first]))
 		first++;
