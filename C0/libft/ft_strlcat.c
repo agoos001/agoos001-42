@@ -40,16 +40,16 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 // #include <string.h>
 // int main() 
 // {
-//
+// 	int result;
 // 	char mem[60] = "Hello ";
 // 	char dst[20] = "agoos ";
-// 	int result = ft_strlcat(dst, mem, 0);
+// 	result = ft_strlcat(dst, mem, 20);
 // 	printf("cpy: %s result: %d\n", mem, result);
 //
 // 	#undef strlcat
 // 	char mem1[12] = "Hello ";
 // 	char dst1[20] = "agoos ";
-// 	result = strlcat(dst1, mem1, 0);
+// 	result = strlcat(dst1, mem1, 20);
 // 	printf("org: %s result: %d\n", mem1, result);
 // }
 // agoos is the best
