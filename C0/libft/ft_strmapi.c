@@ -18,7 +18,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	size_t			len;
 	unsigned int	i;
 
-	if (!s)
+	if (!s || !f)
 		return (NULL);
 	len = ft_strlen(s);
 	result = malloc(len + 1);
@@ -42,10 +42,11 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 // 	return (result);
 // }
 //
+// #include <stdio.h>
 // int	main()
 // {
 // 	char *s = "agoos is the best";
-// 	char *result = ft_strmapi(s, ft_tm);
+// 	char *result = ft_strmapi(s, NULL);
 // 	printf("result: %s \n", result);
 //
 // 	return (0);

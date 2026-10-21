@@ -15,7 +15,7 @@
 
 # include <stdlib.h>
 # include <unistd.h>
-# include <stdio.h>
+# include <stdint.h>
 
 // mem 
 void	*ft_memset(void *s, int c, size_t n);
@@ -34,6 +34,7 @@ char	*ft_strchr(const char *s, int c);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 char	*ft_strrchr(const char *s, int c);
 char	*ft_strdup(const char *s);
+void	ft_striteri(char *s, void (*f)(unsigned int, char *));
 // stdlib.h
 void	*ft_calloc(size_t n, size_t size);
 

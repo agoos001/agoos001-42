@@ -1,6 +1,6 @@
 
-```markdown
-*This project has been created as part of the 42 curriculum by <mbihti>.*
+
+*This project has been created as part of the 42 curriculum by mbihti.*
 
 # Libft
 
@@ -24,7 +24,7 @@ This produces `libft.a`. To use it in your own code:
 cc your_file.c libft.a -o your_program
 ```
 
-Available make rules: `all`, `bonus`, `clean`, `fclean`, `re`.
+Available make rules: `all`, `clean`, `fclean`, `re`.
 
 ## The library
 
@@ -58,7 +58,7 @@ The library has three parts.
 - `man 3` pages for the original libc functions
 - Norminette, the 42 coding-style checker
 - The C standard (C89/C99) for edge-case behaviour
-- Other students’ libft repositories for comparison and test ideas
+- Other students’ libft repositories for comparison
 
-**AI usage:** While creating this libft, I had trouble understanding some of the functions. AI helped me understand where the problem was and how to fix it — though I fixed the issues myself. AI was not used to write the code, only to explain concepts and point out mistakes.
-```
+**AI usage:** While creating this libft, I had trouble understanding some of the functions. AI helped me understand where the problem was and how to fix it — though I fixed the issues myself. AI was not used to write the code, only to explain concepts and point out mistakes, also helped me to creat `README.md`.
+
