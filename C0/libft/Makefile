@@ -10,10 +10,10 @@
 #                                                                              #
 # **************************************************************************** #
 
-CC=: cc
-CFLAGS=: -Wall -Werror -Wextra
+CC:= cc
+CFLAGS:= -Wall -Werror -Wextra
 
-SRC	= ft_atoi.c     ft_isprint.c  ft_memset.c      ft_strdup.c   ft_strnstr.c \
+SRC:= ft_atoi.c     ft_isprint.c  ft_memset.c      ft_strdup.c   ft_strnstr.c \
 	  ft_bzero.c    ft_itoa.c     ft_putchar_fd.c  ft_strjoin.c  ft_strrchr.c \
 	  ft_calloc.c   ft_memccpy.c  ft_putendl_fd.c  ft_strlcat.c  ft_strtrim.c \
 	  ft_isalnum.c  ft_memchr.c   ft_putnbr_fd.c   ft_strlcpy.c  ft_substr.c \
@@ -24,12 +24,12 @@ SRC	= ft_atoi.c     ft_isprint.c  ft_memset.c      ft_strdup.c   ft_strnstr.c \
 	  ft_lstlast.c  ft_lstdelone.c   ft_lstclear.c    ft_lstiter.c
 
 OBJS= $(SRC:.c=.o)
-NAME= libft.a
-HDRS= libft.h
+NAME:= libft.a
+HDRS:= libft.h
 
 all: $(NAME)
 
-%.o: %.c $(HDRS)
+%.o: %.c 
 	$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME): $(OBJS)

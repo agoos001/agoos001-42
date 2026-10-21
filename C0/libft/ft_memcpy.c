@@ -45,4 +45,3 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 // 	memcpy(src1 + 1, src, 5);
 // 	printf("org: %s", src1);
 // }
-

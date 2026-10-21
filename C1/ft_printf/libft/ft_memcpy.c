@@ -30,14 +30,18 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	}
 	return (dest);
 }
-/*
-#include <stdio.h>
-int main()
-{
-	char dest[20];
-	char *src = "agoos is the best";
-	ft_memcpy(dest,src, 10);
-	dest[11] = '\0';
-	printf("%s", dest);
-}
-*/
+
+// #include <memory.h>
+// #include <stdio.h>
+// int main()
+// {
+// 	char src[] = "12345678";
+// 	char src1[] = "12345678";
+//
+// 	ft_memcpy(src + 1,src, 5);
+// 	printf("cpy: %s \n", src);
+//
+//
+// 	memcpy(src1 + 1, src, 5);
+// 	printf("org: %s", src1);
+// }

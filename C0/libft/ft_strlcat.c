@@ -36,21 +36,18 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 	dst[dst_len + i] = '\0';
 	return (dst_len + ft_strlen(src));
 }
-//
-//
 // #include<stdio.h>	
 // #include <string.h>
 // int main() 
 // {
 //
-// 	char mem[128] = "Hello ";
-// 	ft_strlcat(mem, mem, 128);
-// 	printf("cpy: %s \n", mem);
+// 	char mem[13] = "Hello ";
+// 	ft_strlcat(mem, mem, 13);
+// 	printf("cpy: %s\n", mem);
 //
 // 	#undef strlcat
-//
-// 	char mem1[128] = "Hello ";
-// 	strlcat(mem1, mem1, 128);
-// 	printf("org: %s \n", mem1);
+// 	char mem1[12] = "Hello ";
+// 	strlcat(mem1, mem1, 12);
+// 	printf("org: %s\n", mem1);
 // }
-//
+// agoos is the best

@@ -16,6 +16,8 @@ int	ft_parse_flags(const char *str, int i, va_list args, t_flags *flags)
 {
 	if (str[i] == '#')
 		flags->hash = 1;
+	if (str[i] == 'c')
+		i += ft_print_arg(str[i], args, *flags);
 	return (i);
 }
 
@@ -40,18 +42,18 @@ int	ft_parse(char *str, va_list args)
 	count = 0;
 	while (str[i++])
 	{
-		// flags = ft_flags_init();
-		// if (str[i] == '%' && str[i + 1])
-		// {
-		// 	x = ft_parse_flags(str, i, args, &flags);
-		// 	if (flags.spec > 0)
-		// 		i = x;
-		// 	if (str[i] != '\0' && flags.spec > 0 && ft_istype(str[i]))
-		// 		count += ft_print_arg(str[i], args, flags);
-		// 	else if (str[i])
-		// 		count += ft_print_c(str[i]);	
-		// }
-		// else
+		flags = ft_flags_init();
+		if (str[i] == '%' && str[i + 1])
+		{
+			x = ft_parse_flags(str, i, args, &flags);
+			if (flags.spec > 0)
+				i = x;
+			if (str[i] != '\0' && flags.spec > 0 && ft_istype(str[i]))
+				count += ft_print_arg(str[i], args, flags);
+			else if (str[i])
+				count += ft_print_c(str[i]);	
+		}
+		else
 			count += ft_print_c(str[i]);
 	}
 	return (count);
