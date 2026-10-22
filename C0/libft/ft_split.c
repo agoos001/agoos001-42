@@ -88,18 +88,18 @@ char	**ft_split(const char *s, char c)
 		return (NULL);
 	return (result);
 }
-#include <stdio.h>
-
-int main()
-{
-	char *str = "agoos is the best";
-	char **result = ft_split(str, 0);
-
-	int i = 0;
-	while (i < 4)
-	{
-		printf("result[%d]: %s\n", i, result[i]);
-		i++;
-	}
-	return 0;
-}
+// #include <stdio.h>
+//
+// int main()
+// {
+// 	char *str = "agoos is the best";
+// 	char **result = ft_split(str, 0);
+//
+// 	int i = 0;
+// 	while (i < 4)
+// 	{
+// 		printf("result[%d]: %s\n", i, result[i]);
+// 		i++;
+// 	}
+// 	return 0;
+// }

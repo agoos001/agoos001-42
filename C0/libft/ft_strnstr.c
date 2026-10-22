@@ -16,7 +16,7 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
 	size_t	i;
 	size_t	little_len;
-	
+
 	if (!big && len == 0 && little)
 		return (NULL);
 	little_len = ft_strlen(little);
@@ -36,7 +36,6 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	}
 	return (NULL);
 }
-
 // #include <bsd/string.h>
 // #include <stdio.h>
 // int main()
