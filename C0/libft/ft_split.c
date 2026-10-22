@@ -88,14 +88,13 @@ char	**ft_split(const char *s, char c)
 		return (NULL);
 	return (result);
 }
-/*
 #include <stdio.h>
 
 int main()
 {
 	char *str = "agoos is the best";
-	char **result = ft_split(str, ' ');
-	
+	char **result = ft_split(str, 0);
+
 	int i = 0;
 	while (i < 4)
 	{
@@ -103,4 +102,4 @@ int main()
 		i++;
 	}
 	return 0;
-}*/
+}

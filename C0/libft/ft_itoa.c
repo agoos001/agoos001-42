@@ -36,12 +36,12 @@ char	*ft_itoa(int n)
 	char	*result;
 	size_t	len;
 
-	nb = n;
-	if (nb < 0)
-		nb = -nb;
 	if (n == 0)
 		return (ft_strdup("0"));
-	len = n_len((long)n);
+	nb = n;
+	len = n_len(nb);
+	if (nb < 0)
+		nb = -nb;
 	result = malloc (len + 1);
 	if (!result)
 		return (NULL);
@@ -61,9 +61,8 @@ char	*ft_itoa(int n)
 // int main()
 // {
 // 	printf("result: %s\n", ft_itoa(0131));
-// 	printf("result: %s\n", itoa(0));
-// // 	printf("result: %s\n", ft_itoa(-1));
-// // 	printf("result: %s\n", ft_itoa(INT_MAX));
-// // 	printf("result: %s\n", ft_itoa(INT_MIN));
-// // 	return (0);
+// 	printf("result: %s\n", ft_itoa(-1));
+// 	printf("result: %s\n", ft_itoa(INT_MAX));
+// 	printf("result: %s\n", ft_itoa(INT_MIN));
+// 	return (0);
 // }
