@@ -36,29 +36,22 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	}
 	return (NULL);
 }
+
 // #include <bsd/string.h>
 // #include <stdio.h>
 // int main()
 // {
 // 	char *result;
-// 	result = ft_strnstr(NULL, "is", 0);
+// 	result = ft_strnstr(NULL, "is", 0); //null/null/0 //
 // 	printf("result: %s \n", result);
 //
 // 	result = strnstr(NULL, "is", 0);
 // 	printf("result: %s \n", result);
 //
-	// result = ft_strnstr("agoos is the best", "is", 20);
-	// printf("result: %s \n", result);
-	//
-	// result = ft_strnstr("agoos is the best", "", 17);
-	// printf("result: %s \n", result);
-	//
-	// result = ft_strnstr("agoos is the best", "is", 0);
-	// printf("result: %s \n", result);
-	//
-	// result = ft_strnstr("agoos is the best", "t", 17);
-	// printf("result: %s \n", result);
-	//
-	// result = ft_strnstr("agoos is the best", "a", 17);
-	// printf("result: %s \n", result);
+// 	// result = ft_strnstr("agoos is the best", "is", 20);
+// 	// printf("result: %s \n", result);
+// 	//
+// 	// result = ft_strnstr("agoos is the best", "", 17);
+// 	// printf("result: %s \n", result);
+//
 // }
