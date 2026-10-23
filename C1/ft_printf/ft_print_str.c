@@ -25,6 +25,19 @@ int	ft_print_s_pre(const char *s, int precision)
 	return (count);
 }
 
+int	ft_print_string(const char *s)
+{
+	int count;
+
+	count = 0;
+	while (*s)
+	{
+		write(1, s++, 1);
+		count++;
+	}
+	return (count);
+}
+
 int	ft_print_str(const char *s, t_flags *flags)
 {
 	int	count;
@@ -32,5 +45,9 @@ int	ft_print_str(const char *s, t_flags *flags)
 	count = 0;
 	if (flags->precision > 0)
 		count += ft_print_s_pre(s, flags->precision);
+	else
+		count += ft_print_string(s);
 	return (count);
 }
+
+
