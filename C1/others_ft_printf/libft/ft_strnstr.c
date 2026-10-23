@@ -3,48 +3,55 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcombeau <mcombeau@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mbihti <mbihti@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/25 23:07:33 by mcombeau          #+#    #+#             */
-/*   Updated: 2021/12/03 16:33:24 by mcombeau         ###   ########.fr       */
+/*   Created: 2026/08/16 07:15:24 by mbihti            #+#    #+#             */
+/*   Updated: 2026/08/17 06:33:30 by mbihti           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*
-	DESCRIPTION :
-	The function ft_strnstr searches the first n bytes of the given string
-	s1 for the first occurence of the full string s2.
-	Characters that appear after \0 are not searched.
-
-	RETURN VALUE :
-	A pointer to the first character of the first occurrence of s2.
-	A pointer to s1 if s2 is empty.
-	NULL if s2 occurs nowhere in s1.
-*/
-
-char	*ft_strnstr(const char *s1, const char *s2, size_t n)
+char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	size_t	s2len;
 	size_t	i;
-	size_t	j;
+	size_t	little_len;
 
-	s2len = ft_strlen(s2);
-	if (s1 == s2 || s2len == 0)
-		return ((char *)s1);
-	i = 0;
-	while (i < n && s1[i] != '\0')
+	if (!big && len == 0 && little)
+		return (NULL);
+	little_len = ft_strlen(little);
+	if (little_len < 1)
+		return ((char *)big);
+	while (len && *big)
 	{
-		j = 0;
-		while (s1[i + j] != '\0' && s2[j] != '\0'
-			&& (i + j) < n && s1[i + j] == s2[j])
-		{
-			j++;
-			if ((j == n && j == s2len) || j == s2len)
-				return ((char *)(s1 + i));
-		}
-		i++;
+		if (len < little_len)
+			break ;
+		i = 0;
+		while (little[i] && little[i] == big[i])
+			i++;
+		if (i == little_len)
+			return ((char *)big);
+		big++;
+		len--;
 	}
-	return (0);
+	return (NULL);
 }
+
+// #include <bsd/string.h>
+// #include <stdio.h>
+// int main()
+// {
+// 	char *result;
+// 	result = ft_strnstr(NULL, "is", 0); //null/null/0 //
+// 	printf("result: %s \n", result);
+//
+// 	result = strnstr(NULL, "is", 0);
+// 	printf("result: %s \n", result);
+//
+// 	// result = ft_strnstr("agoos is the best", "is", 20);
+// 	// printf("result: %s \n", result);
+// 	//
+// 	// result = ft_strnstr("agoos is the best", "", 17);
+// 	// printf("result: %s \n", result);
+//
+// }

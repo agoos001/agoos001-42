@@ -3,51 +3,56 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcombeau <mcombeau@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mbihti <mbihti@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/01 20:34:19 by mcombeau          #+#    #+#             */
-/*   Updated: 2021/12/04 13:13:40 by mcombeau         ###   ########.fr       */
+/*   Created: 2026/08/25 12:00:06 by mbihti            #+#    #+#             */
+/*   Updated: 2026/08/25 13:00:37 by mbihti           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*
-	DESCRIPTION :
-	The function ft_lstmap creates a new list from a given list  by 
-	applying the function passed as parameter to the original list. If
-	the memory allocation fails for any node in the new list, the new list
-	will be deleted with the function passed as parameter and its memory
-	will be freed.
-
-	RETURN VALUE :
-	The new list containing the new values if a functon was provided.
-	A new copy of the list if no function was provided.
-	NULL if the memory allocation failed.
-*/
-
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	t_list	*newlst;
-	t_list	*node;
+	t_list	*new_list;
+	t_list	*new_node;
+	void	*set;
 
-	if (!lst)
+	if (!lst || !f)
 		return (NULL);
-	newlst = NULL;
-	node = NULL;
+	new_list = NULL;
 	while (lst)
 	{
-		if (!f)
-			node = ft_lstnew(lst->content);
-		else
-			node = ft_lstnew(f(lst->content));
-		if (!node)
+		set = f(lst->content);
+		new_node = ft_lstnew(set);
+		if (!new_node)
 		{
-			ft_lstclear(&newlst, del);
+			if (del)
+				del(set);
+			ft_lstclear(&new_list, del);
 			return (NULL);
 		}
-		ft_lstadd_back(&newlst, node);
+		ft_lstadd_back(&new_list, new_node);
 		lst = lst->next;
 	}
-	return (newlst);
+	return (new_list);
 }
+
+// void print(void *ptr)
+// {
+// 	printf("node: %d \n", *(int *)ptr);
+// }
+// int	main()
+// {
+// 	t_list *nod1 = NULL;
+//
+// 	int i;
+// 	for (i = 0; i < 10; i++)
+// 	{
+// 		int* mem = malloc(4);
+// 		*mem = i;
+// 		ft_lstadd_back(&nod1, ft_lstnew(mem));
+// 	}
+//
+// 	ft_lstiter(nod1, print);
+// }

@@ -3,44 +3,45 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcombeau <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mbihti <mbihti@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/23 15:02:13 by mcombeau          #+#    #+#             */
-/*   Updated: 2021/12/02 15:26:40 by mcombeau         ###   ########.fr       */
+/*   Created: 2026/08/13 17:09:48 by mbihti            #+#    #+#             */
+/*   Updated: 2026/08/14 06:25:20 by mbihti           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*
-	DESCRIPTION :
-	The function ft_memcpy copies n bytes from memory area src to memory
-	area dst.
-	Does not account for memory overlaps. Use ft_memmove if the memory areas
-	overlap or might overlap.
-
-	RETURN VALUE :
-	A pointer to dst. NULL if src and dst are both NULL.
-*/
-
-void	*ft_memcpy(void *dst, const void *src, size_t n)
+void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	char		*dp;
-	const char	*sp;
+	unsigned char	*ptr1;
+	unsigned char	*ptr2;
+	size_t			i;
 
-	if (!dst && !src)
-		return (0);
-	if (n == 0 || (dst == src))
-		return (dst);
-	dp = (char *)dst;
-	sp = (const char *)src;
-	while (n != 0)
+	if (!src && !dest)
+		return (NULL);
+	ptr1 = (unsigned char *)dest;
+	ptr2 = (unsigned char *)src;
+	i = 0;
+	while (i < n)
 	{
-		if (*dp != *sp)
-			*dp = *sp;
-		dp++;
-		sp++;
-		n--;
+		ptr1[i] = ptr2[i];
+		i++;
 	}
-	return (dst);
+	return (dest);
 }
+
+// #include <memory.h>
+// #include <stdio.h>
+// int main()
+// {
+// 	char src[] = "12345678";
+// 	char src1[] = "12345678";
+//
+// 	ft_memcpy(src + 1,src, 5);
+// 	printf("cpy: %s \n", src);
+//
+//
+// 	memcpy(src1 + 1, src, 5);
+// 	printf("org: %s", src1);
+// }

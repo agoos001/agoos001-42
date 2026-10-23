@@ -3,34 +3,41 @@
 /*                                                        :::      ::::::::   */
 /*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcombeau <mcombeau@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mbihti <mbihti@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/28 05:10:58 by mcombeau          #+#    #+#             */
-/*   Updated: 2021/12/02 16:00:25 by mcombeau         ###   ########.fr       */
+/*   Created: 2026/10/16 09:47:23 by mbihti            #+#    #+#             */
+/*   Updated: 2026/10/16 10:31:56 by mbihti           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*
-	DESCRIPTION :
-	The function ft_striteri applies the given function f to each
-	character in the given string s.
-
-	RETURN VALUE :
-	None.
-*/
-
-void	ft_striteri(char *s, void (*f)(unsigned int, char*))
+void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
-	int	i;
+	unsigned int	i;
 
 	if (!s || !f)
 		return ;
 	i = 0;
 	while (s[i])
 	{
-		(*f)(i, &s[i]);
+		f(i, &s[i]);
 		i++;
 	}
 }
+//
+// void ft_tm(unsigned int i, char *s)
+// {
+// 	(void)i;
+// 	*s = 'a';
+// }
+//
+// int	main()
+// {
+// 	char s[] = "agoos is the best";
+// 	printf("org: %s \n", s);
+// 	ft_striteri(s, ft_tm);
+// 	printf("mod: %s \n", s);
+//
+// 	return (0);
+// }

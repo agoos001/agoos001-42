@@ -3,47 +3,53 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcombeau <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mbihti <mbihti@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/24 15:14:19 by mcombeau          #+#    #+#             */
-/*   Updated: 2021/12/02 16:13:28 by mcombeau         ###   ########.fr       */
+/*   Created: 2026/08/14 17:02:32 by mbihti            #+#    #+#             */
+/*   Updated: 2026/08/14 17:20:59 by mbihti           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*
-	DESCRIPTION :
-	The function ft_strlcat appends the given string src to the end of 
-	dst. It will append at most dstsize - ft_strlen(dst) - 1 and 
-	nul-terminate the result.
-
-	Note : space for the terminating \0 character must be included in dstsize.
-
-	RETURN VALUE :
-	The total length of the string that it tried to create : the initial
-	length of dst + the length of src, with the goal to facilitate
-	truncaction detection.
-*/
-
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
+	size_t	dst_len;
 	size_t	i;
-	size_t	j;
-	size_t	d_size;
-	size_t	s_size;
+	size_t	src_len;
 
-	d_size = ft_strlen(dst);
-	s_size = ft_strlen(src);
-	if (dstsize <= d_size)
-		return (dstsize + s_size);
-	i = d_size;
-	j = 0;
-	while ((i + j) < (dstsize - 1) && src[j] != '\0')
+	src_len = ft_strlen(src);
+	if (!dstsize)
+		return (src_len);
+	dst_len = ft_strlen(dst);
+	if (dst_len >= dstsize)
+		return (dstsize + src_len);
+	i = 0;
+	dstsize = dstsize - dst_len - 1;
+	if (dstsize > src_len)
+		dstsize = src_len;
+	while (i < dstsize)
 	{
-		dst[i + j] = src[j];
-		j++;
+		dst[dst_len + i] = src[i];
+		i++;
 	}
-	dst[i + j] = '\0';
-	return (d_size + s_size);
+	dst[dst_len + i] = '\0';
+	return (dst_len + src_len);
 }
+// #include<stdio.h>	
+// #include <string.h>
+// int main() 
+// {
+// 	int result;
+// 	char mem[60] = "Hello ";
+// 	char dst[20] = "agoos ";
+// 	result = ft_strlcat(dst, mem, 20);
+// 	printf("cpy: %s result: %d\n", mem, result);
+//
+// 	#undef strlcat
+// 	char mem1[12] = "Hello ";
+// 	char dst1[20] = "agoos ";
+// 	result = strlcat(dst1, mem1, 20);
+// 	printf("org: %s result: %d\n", mem1, result);
+// }
+// agoos is the best

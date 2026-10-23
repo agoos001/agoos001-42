@@ -34,7 +34,6 @@ int	ft_parse_flags(const char *str, int i, va_list args, t_flags *flags)
 		if (ft_isspec(str[i]))
 		{
 			flags->spec = str[i];
-			i += ft_print_arg(str[i], args, *flags);
 			return (i);
 		}
 		i++;

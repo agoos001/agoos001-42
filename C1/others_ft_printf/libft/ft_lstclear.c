@@ -3,36 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcombeau <mcombeau@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mbihti <mbihti@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/01 20:11:58 by mcombeau          #+#    #+#             */
-/*   Updated: 2021/12/05 13:09:17 by mcombeau         ###   ########.fr       */
+/*   Created: 2026/08/23 14:48:33 by mbihti            #+#    #+#             */
+/*   Updated: 2026/08/23 15:12:40 by mbihti           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*
-	DESCRIPTION :
-	The function ft_lstclear deletes each node of a list with the function
-	passed as parameter. It also frees the memory of each node and finally
-	sets the list pointer to NULL.
-
-	RETURN VALUE :
-	None.
-*/
-
 void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	t_list	*tmp;
+	t_list	*ptr;
 
-	if (!lst)
+	if (!lst || !(*lst))
 		return ;
 	while (*lst)
 	{
-		tmp = (*lst)->next;
+		ptr = (*lst)->next;
 		ft_lstdelone(*lst, del);
-		*lst = tmp;
+		*lst = ptr;
 	}
-	*lst = NULL;
 }

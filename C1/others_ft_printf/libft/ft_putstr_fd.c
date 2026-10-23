@@ -3,31 +3,28 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcombeau <mcombeau@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mbihti <mbihti@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/28 05:42:28 by mcombeau          #+#    #+#             */
-/*   Updated: 2021/12/03 16:23:10 by mcombeau         ###   ########.fr       */
+/*   Created: 2026/08/19 16:10:00 by mbihti            #+#    #+#             */
+/*   Updated: 2026/08/19 17:46:07 by mbihti           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*
-	DESCRIPTION :
-	The function ft_putstr_fd writes the given string to the given
-	file descriptor.
-
-	RETURN VALUE :
-	None.
-*/
-
 void	ft_putstr_fd(char *s, int fd)
 {
 	if (!s)
 		return ;
-	while (*s != '\0')
+	while (*s)
 	{
 		ft_putchar_fd(*s, fd);
 		s++;
 	}
 }
+/*int main()
+{
+	ft_putstr_fd("agoos is the best\n", 1);
+	ft_putstr_fd("this is second\n", 19);
+	ft_putstr_fd("this is first\n", -1);
+}*/

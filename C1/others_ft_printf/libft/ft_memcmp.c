@@ -3,38 +3,42 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcombeau <mcombeau@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mbihti <mbihti@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/25 22:41:23 by mcombeau          #+#    #+#             */
-/*   Updated: 2021/12/02 16:51:42 by mcombeau         ###   ########.fr       */
+/*   Created: 2026/08/14 15:42:00 by mbihti            #+#    #+#             */
+/*   Updated: 2026/08/14 16:13:59 by mbihti           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*
-	DESCRIPTION :
-	The function ft_memcmp compares the first n bytes of the memory areas
-	s1 and s2. The bytes are interpreted as unsigned char.
-
-	RETURN VALUE :
-	An integer less than, equal to, or greater than zero if the first
-	n bytes of s1 is found to be less than, equal to, or greater than the 
-	first n bytes of s2. Zero if n is equal to zero.
-*/
-
-int	ft_memcmp(const void *s1, const void *s2, size_t n)
+int	ft_memcmp(const void *s1, const	void *s2, size_t n)
 {
-	const char	*str1;
-	const char	*str2;
-	size_t		i;
+	unsigned char	*ss1;
+	unsigned char	*ss2;
 
-	if (n == 0)
-		return (0);
-	str1 = (const char *)s1;
-	str2 = (const char *)s2;
-	i = 0;
-	while ((i < n - 1) && str1[i] == str2[i])
-		i++;
-	return ((unsigned char)str1[i] - (unsigned char)str2[i]);
+	ss1 = (unsigned char *)s1;
+	ss2 = (unsigned char *)s2;
+	while (n--)
+	{
+		if (*ss1 != *ss2)
+			return (*ss1 - *ss2);
+		ss1++;
+		ss2++;
+	}
+	return (0);
 }
+
+// #include <memory.h>
+// #include <stdio.h>
+// int main()
+// {
+// 	char str[] = "agooa";
+// 	char str1[] = "agoob";
+// 	int result ;
+// 	// result = ft_memcmp(NULL, str1, 5);
+// 	// printf("org: %d \n", result);
+//
+// 	result = memcmp(str, NULL, 5);
+// 	printf("cpy: %d \n", result);
+// }

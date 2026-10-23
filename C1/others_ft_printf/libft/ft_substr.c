@@ -3,44 +3,58 @@
 /*                                                        :::      ::::::::   */
 /*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcombeau <mcombeau@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mbihti <mbihti@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/26 16:50:44 by mcombeau          #+#    #+#             */
-/*   Updated: 2021/12/02 16:53:34 by mcombeau         ###   ########.fr       */
+/*   Created: 2026/08/18 07:25:41 by mbihti            #+#    #+#             */
+/*   Updated: 2026/08/18 11:34:06 by mbihti           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*
-	DESCRIPTION :
-	The function ft_substr extracts a substring from the given string by
-	allocating sufficient memory for the new string starting at index start
-	and ending at len characters.
-
-	RETURN VALUE :
-	A pointer to the new string.
-	NULL if the memory allocation fails.
-*/
-
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+static char	*allocate(void)
 {
-	char	*res;
-	char	*src;
-	size_t	reslen;
+	char	*result;
+
+	result = malloc(1);
+	if (!result)
+		return (NULL);
+	result[0] = '\0';
+	return (result);
+}
+
+char	*ft_substr(const char *s, unsigned int start, size_t len)
+{
+	char	*result;
+	size_t	sub_len;
+	size_t	s_len;
 
 	if (!s)
 		return (NULL);
-	if (ft_strlen(s) < (size_t)start)
-		return (ft_strdup(""));
-	src = (char *)s + start;
-	if (ft_strlen(src) < len)
-		reslen = ft_strlen(src) + 1;
-	else
-		reslen = len + 1;
-	res = malloc(reslen * sizeof(char));
-	if (!res)
+	s_len = ft_strlen(s);
+	if (start >= s_len || !len)
+	{
+		result = allocate();
+		return (result);
+	}
+	sub_len = s_len - start;
+	if (sub_len > len)
+		sub_len = len;
+	result = malloc(sub_len + 1);
+	if (!result)
 		return (NULL);
-	ft_strlcpy(res, src, reslen);
-	return (res);
+	while (start--)
+		s++;
+	ft_memcpy(result, s, sub_len);
+	result[sub_len] = '\0';
+	return (result);
 }
+/*
+int main()
+{
+	char *str = "agoos is the best";
+	char *result = ft_substr(str, 0, 17);
+	int i = 0;
+
+	write(1, &result[i], 18);
+}*/

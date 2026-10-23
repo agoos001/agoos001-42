@@ -3,47 +3,47 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcombeau <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mbihti <mbihti@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/23 15:57:19 by mcombeau          #+#    #+#             */
-/*   Updated: 2021/12/02 16:48:38 by mcombeau         ###   ########.fr       */
+/*   Created: 2026/08/13 17:59:49 by mbihti            #+#    #+#             */
+/*   Updated: 2026/08/14 06:17:18 by mbihti           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*
-	DESCRIPTION :
-	The function ft_memmove copies n bytes from memory area src to memory
-	area dst. The memory areas may overlap: if the dst pointer is found
-	to be between the src pointer and the index n, copying will be done
-	back to front to prevent data being modified before being copied.
-	Otherwise it will be done front to back	to preserve data.
-
-	RETURN VALUE :
-	A pointer to dst.
-*/
-
-void	*ft_memmove(void *dst, const void *src, size_t len)
+void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	char		*dp;
-	const char	*sp;
+	unsigned char	*d;
+	unsigned char	*s;
 
-	if (src == dst)
-		return (dst);
-	dp = (char *)dst;
-	sp = (const char *)src;
-	if (sp < dp && sp + len > dp)
-		while (len--)
-			*(dp + len) = *(sp + len);
+	if (!dest && !src)
+		return (NULL);
+	d = (unsigned char *)dest;
+	s = (unsigned char *)src;
+	if (d > s)
+	{
+		while (n--)
+			d[n] = s[n];
+	}
 	else
 	{
-		while (len--)
-		{
-			*dp = *sp;
-			sp++;
-			dp++;
-		}
+		ft_memcpy(dest, src, n);
 	}
-	return (dst);
+	return (dest);
 }
+// #include <stdio.h>
+// #include <unistd.h>
+// int main()
+// {
+// 	char str[20] = "agoos is the best";
+// 	char *dest;
+// 	int i = 0;
+// 	dest = ft_memmove(str + 2 , str , 17);
+// 	while (i < 17)
+// 	{
+// 		write(1, &dest[i], 1);	
+// 		i++;
+// 	}
+// 	return 0;	
+// }

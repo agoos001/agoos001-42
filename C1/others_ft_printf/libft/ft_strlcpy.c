@@ -3,41 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcombeau <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mbihti <mbihti@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/24 14:16:24 by mcombeau          #+#    #+#             */
-/*   Updated: 2021/12/03 16:32:30 by mcombeau         ###   ########.fr       */
+/*   Created: 2026/08/14 16:22:12 by mbihti            #+#    #+#             */
+/*   Updated: 2026/08/14 16:58:52 by mbihti           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*
-	DESCRIPTION :
-	The function ft_strlcpy copies up to size - 1 characters from the given
-	string src to the given string dst, nul-terminating the result.
-
-	Note : space for the terminating \0 character must be included in dstsize.
-
-	RETURN VALUE :
-	The total length of the string that it tried to create : the length of
-	src, with the goal to facilitate truncaction detection.
-*/
-
-size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
+size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
 	size_t	i;
-	size_t	srclen;
+	size_t	src_len;
 
-	srclen = ft_strlen(src);
-	if (dstsize == 0)
-		return (srclen);
+	src_len = ft_strlen(src);
+	if (size == 0)
+		return (src_len);
 	i = 0;
-	while (i < (dstsize - 1) && src[i] != '\0')
+	while (i < size - 1 && src[i])
 	{
 		dst[i] = src[i];
 		i++;
 	}
 	dst[i] = '\0';
-	return (srclen);
+	return (src_len);
 }

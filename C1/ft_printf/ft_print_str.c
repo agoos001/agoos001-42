@@ -38,16 +38,14 @@ int	ft_print_string(const char *s)
 	return (count);
 }
 
-int	ft_print_str(const char *s, t_flags *flags)
+int	ft_print_str(const char *str, t_flags *flags)
 {
 	int	count;
 
 	count = 0;
 	if (flags->precision > 0)
-		count += ft_print_s_pre(s, flags->precision);
+		count += ft_print_s_pre(str, flags->precision);
 	else
-		count += ft_print_string(s);
+		count += ft_print_string(str);
 	return (count);
 }
-
-

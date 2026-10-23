@@ -16,7 +16,7 @@ LIBFT_PATH		=	./libft
 LIBFT			=	$(LIBFT_PATH)/libft.a
 
 $(OBJ_DIR)/%.o:		%.c
-					$(CC) $(CFLAGS) -c $< -o $@
+					$(CC)  -c $< -o $@
 
 all:				$(NAME)
 

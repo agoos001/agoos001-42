@@ -3,47 +3,47 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcombeau <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mbihti <mbihti@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/24 18:06:58 by mcombeau          #+#    #+#             */
-/*   Updated: 2021/12/02 16:48:58 by mcombeau         ###   ########.fr       */
+/*   Created: 2026/10/16 20:50:19 by mbihti            #+#    #+#             */
+/*   Updated: 2026/10/16 21:09:43 by mbihti           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <limits.h>
 
-/*
-	DESCRIPTION :
-	The function ft_atoi converts a string into an int.
-
-	RETURN VALUE :
-	The converted int.
-*/
-
-int	ft_atoi(const char *str)
+int	ft_atoi(const char *nptr)
 {
-	int	num;
-	int	isneg;
-	int	i;
+	long	result;
+	int		sign;
 
-	num = 0;
-	isneg = 1;
-	i = 0;
-	while (str[i] && (str[i] == ' ' || str[i] == '\t'
-			|| str[i] == '\n' || str[i] == '\r'
-			|| str[i] == '\v' || str[i] == '\f'))
-		i++;
-	if (str[i] == '+')
-		i++;
-	else if (str[i] == '-')
+	while (*nptr && ((*nptr >= 9 && *nptr <= 13) || *nptr == 32))
+		nptr++;
+	sign = 1;
+	if (*nptr == '-' || *nptr == '+')
 	{
-		isneg *= -1;
-		i++;
+		if (*(nptr++) == '-')
+			sign = -1;
 	}
-	while (ft_isdigit(str[i]))
+	result = 0;
+	while (*nptr >= '0' && *nptr <= '9')
 	{
-		num = (num * 10) + (str[i] - '0');
-		i++;
+		if (result > (LONG_MAX - (*nptr - '0')) / 10)
+		{
+			if (sign == -1)
+				return ((int)LONG_MIN);
+			return ((int)LONG_MAX);
+		}
+		result = result * 10 + (*nptr - '0');
+		nptr++;
 	}
-	return (num * isneg);
+	return (result * sign);
 }
+// #include <stdio.h>
+// int main()
+// {
+// 	printf("org: %d\n", atoi("-60508098098080980980980909808098098"));
+// 	printf("cpy: %d\n", ft_atoi("-60508098098080980980980909808098098"));
+//
+// }

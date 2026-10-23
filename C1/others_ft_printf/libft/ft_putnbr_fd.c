@@ -3,39 +3,43 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcombeau <mcombeau@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mbihti <mbihti@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/28 06:22:02 by mcombeau          #+#    #+#             */
-/*   Updated: 2021/12/02 15:44:08 by mcombeau         ###   ########.fr       */
+/*   Created: 2026/08/19 18:00:25 by mbihti            #+#    #+#             */
+/*   Updated: 2026/08/19 18:05:51 by mbihti           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*
-	DESCRIPTION :
-	The function ft_putnbr_fd writes the given integer n on the given
-	file descriptor by converting it into char.
-
-	RETURN VALUE :
-	None.
-*/
-
 void	ft_putnbr_fd(int n, int fd)
 {
-	long	nbr;
+	long	nb;
 
-	nbr = n;
-	if (nbr < 0)
+	nb = n;
+	if (nb < 0)
 	{
 		ft_putchar_fd('-', fd);
-		nbr = -nbr;
+		nb = -nb;
 	}
-	if (nbr >= 10)
+	if (nb > 9)
 	{
-		ft_putnbr_fd(nbr / 10, fd);
-		ft_putchar_fd((nbr % 10) + '0', fd);
+		ft_putnbr_fd(nb / 10, fd);
+		ft_putnbr_fd(nb % 10, fd);
+		return ;
 	}
 	else
-		ft_putchar_fd(nbr + '0', fd);
+		ft_putchar_fd(nb + '0', fd);
 }
+//
+// int main()
+// {
+// 	ft_putnbr_fd(-555, 1);
+// 	write(1, "\n", 1);
+// 	ft_putnbr_fd(2, 1);
+// 	write(1, "\n", 1);
+// 	ft_putnbr_fd(-555, 1);
+// 	write(1, "\n", 1);
+// 	ft_putnbr_fd(555, 1);
+// 	write(1, "\n", 1);
+// }

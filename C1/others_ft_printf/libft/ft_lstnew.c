@@ -3,33 +3,31 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcombeau <mcombeau@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mbihti <mbihti@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/30 17:28:58 by mcombeau          #+#    #+#             */
-/*   Updated: 2021/12/02 15:13:17 by mcombeau         ###   ########.fr       */
+/*   Created: 2026/08/23 09:32:10 by mbihti            #+#    #+#             */
+/*   Updated: 2026/08/23 12:14:32 by mbihti           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*
-	DESCRIPTION :
-	The function ft_lstnew allocates memory for a new list node and 
-	initializes its content to the value passed as parameter, before
-	setting its next node to NULL. 
-
-	RESULT VALUE :
-	The new list ode.
-*/
-
 t_list	*ft_lstnew(void *content)
 {
-	t_list	*list;
+	t_list	*result;
 
-	list = malloc(sizeof(t_list));
-	if (!list)
+	result = malloc (sizeof(struct s_list));
+	if (!result)
 		return (NULL);
-	list->content = content;
-	list->next = NULL;
-	return (list);
+	result->content = content;
+	result->next = NULL;
+	return (result);
 }
+//
+// #include <stdio.h>
+// int main()
+// {
+// 	char *str = "agoos is the best";
+// 	t_list *result = ft_lstnew(str);
+// 	printf("result: %s\n", (char *)result->content);
+// }

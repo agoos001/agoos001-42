@@ -3,43 +3,51 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcombeau <mcombeau@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mbihti <mbihti@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/28 04:35:39 by mcombeau          #+#    #+#             */
-/*   Updated: 2021/12/02 16:21:12 by mcombeau         ###   ########.fr       */
+/*   Created: 2026/08/19 13:41:50 by mbihti            #+#    #+#             */
+/*   Updated: 2026/08/19 13:52:30 by mbihti           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*
-	DESRIPTION :
-	The function ft_strmapi applies the given function f to each character
-	in the given string s and allocates sufficient memory to store the
-	resulting new string. 
-
-	RETURN VALUE :
-	A pointer to the newly created string. NULL if the memory allocation
-	fails.	
-*/
-
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	char			*str;
+	char			*result;
+	size_t			len;
 	unsigned int	i;
 
-	if (!s || (!s && !f))
-		return (ft_strdup(""));
-	else if (!f)
-		return (ft_strdup(s));
-	str = ft_strdup(s);
-	if (!str)
+	if (!s || !f)
+		return (NULL);
+	len = ft_strlen(s);
+	result = malloc(len + 1);
+	if (!result)
 		return (NULL);
 	i = 0;
-	while (s[i])
+	while (i < len)
 	{
-		str[i] = (*f)(i, s[i]);
+		result[i] = (*f)(i, s[i]);
 		i++;
 	}
-	return (str);
+	result[i] = '\0';
+	return (result);
 }
+//
+// char	ft_tm(unsigned int i, char c)
+// {
+// 	(void)i;
+// 	(void)c;
+// 	char result = 'a';
+// 	return (result);
+// }
+//
+// #include <stdio.h>
+// int	main()
+// {
+// 	char *s = "agoos is the best";
+// 	char *result = ft_strmapi(s, NULL);
+// 	printf("result: %s \n", result);
+//
+// 	return (0);
+// }
