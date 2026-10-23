@@ -11,13 +11,14 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <string.h>
 
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
 	size_t	i;
 	size_t	little_len;
 
+	if (!big && len == 0 && little)
+		return (NULL);
 	little_len = ft_strlen(little);
 	if (little_len < 1)
 		return ((char *)big);
@@ -35,14 +36,15 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	}
 	return (NULL);
 }
-//
+
+// #include <bsd/string.h>
 // #include <stdio.h>
-// #include <string.h>
 // int main()
 // {
 // 	char *result;
-// 	result = ft_strnstr(NULL, "is", 0);
+// 	result = ft_strnstr(NULL, "is", 0); //null/null/0 //
 // 	printf("result: %s \n", result);
+//
 // 	result = strnstr(NULL, "is", 0);
 // 	printf("result: %s \n", result);
 //
@@ -51,13 +53,5 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 // 	//
 // 	// result = ft_strnstr("agoos is the best", "", 17);
 // 	// printf("result: %s \n", result);
-// 	//
-// 	// result = ft_strnstr("agoos is the best", "is", 0);
-// 	// printf("result: %s \n", result);
-// 	//
-// 	// result = ft_strnstr("agoos is the best", "t", 17);
-// 	// printf("result: %s \n", result);
-// 	//
-// 	// result = ft_strnstr("agoos is the best", "a", 17);
-// 	// printf("result: %s \n", result);
+//
 // }

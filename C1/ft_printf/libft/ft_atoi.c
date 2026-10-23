@@ -43,7 +43,7 @@ int	ft_atoi(const char *nptr)
 // #include <stdio.h>
 // int main()
 // {
-// 	printf("org: %d\n", atoi("\t\v\f\r\n \f-06050"));
-// 	printf("cpy: %d\n", ft_atoi("\t\v\f\r\n \f-06050"));
+// 	printf("org: %d\n", atoi("-60508098098080980980980909808098098"));
+// 	printf("cpy: %d\n", ft_atoi("-60508098098080980980980909808098098"));
 //
 // }

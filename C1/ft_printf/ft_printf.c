@@ -6,29 +6,39 @@
 /*   By: mbihti <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/18 12:04:23 by mbihti            #+#    #+#             */
-/*   Updated: 2026/10/19 19:37:29 by mbihti           ###   ########.fr       */
+/*   Updated: 2026/10/23 09:20:11 by mbihti           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_parse_flags(const char *str, int i, va_list args, t_flags *flags)
-{
-	if (str[i] == '#')
-		flags->hash = 1;
-	if (str[i] == 'c')
-		i += ft_print_arg(str[i], args, *flags);
-	return (i);
-}
 
 int	ft_print_arg(char type, va_list args, t_flags flags)
 {
 	int	count;
 
 	count = 0;
-	if(type == 'c')
+	if (type == 'c')
 		count += ft_print_char(va_arg(args, int), flags);
+	if (type == 's')
+		count += ft_print_str(va_arg(args, char *), &flags);
 	return (count);
+}
+
+int	ft_parse_flags(const char *str, int i, va_list args, t_flags *flags)
+{
+	while (str[i])
+	{
+		if (str[i] == '#')
+			flags->hash = 1;
+		if (ft_isspec(str[i]))
+		{
+			i += ft_print_arg(str[i], args, *flags);
+			return (i);
+		}
+		i++;
+	}
+	return (i);
 }
 
 int	ft_parse(char *str, va_list args)
@@ -40,7 +50,7 @@ int	ft_parse(char *str, va_list args)
 
 	i = -1;
 	count = 0;
-	while (str[i++])
+	while (str[++i])
 	{
 		flags = ft_flags_init();
 		if (str[i] == '%' && str[i + 1])
@@ -53,8 +63,8 @@ int	ft_parse(char *str, va_list args)
 			else if (str[i])
 				count += ft_print_c(str[i]);	
 		}
-		else
-			count += ft_print_c(str[i]);
+		// else
+		// 	count += ft_print_c(str[i]);
 	}
 	return (count);
 }

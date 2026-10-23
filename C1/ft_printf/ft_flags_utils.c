@@ -28,12 +28,12 @@ t_flags	ft_flags_init(void)
 	return (flags);
 }
 
-int	ft_isflag(int c)
+int	ft_istype(int c)
 {
-	return (ft_istype(c) || ft_isdigit(c) || ft_isspec(c));
+	return (ft_isflag(c) || ft_isdigit(c) || ft_isspec(c));
 }
 
-int	ft_isspec(int c)
+int	ft_isflag(int c)
 {
 	if (c == '-' || c == '*' || c == '-' || c == '+' 
 		|| c == '#' || c == ' ' || c == '.')
@@ -41,14 +41,13 @@ int	ft_isspec(int c)
 	return (0);
 }
 
-int	ft_istype(int c)
+int	ft_isspec(int c)
 {
 	if (c == 'c' || c == 's' || c == 'd' || c == 'i' || c == 'u'
 		|| c == 'x' || c == 'X' || c == 'p' || c == '%')
 		return (1);
 	return (0);
 }
-
 
 int	ft_pad_width(int total_width, int size, int zero)
 {

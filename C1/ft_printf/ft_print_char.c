@@ -6,7 +6,7 @@
 /*   By: mbihti <mbihti@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/19 20:05:34 by mbihti            #+#    #+#             */
-/*   Updated: 2026/10/19 20:25:58 by mbihti           ###   ########.fr       */
+/*   Updated: 2026/10/23 09:30:40 by mbihti           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,10 @@ int	ft_print_char(char c, t_flags flags)
 
 	count = 0;
 	if (flags.left)
+	{
 		count += ft_print_c(c);
-	count += ft_pad_width(flags.width, 1, flags.zero);
+		count += ft_pad_width(flags.width, 1, flags.zero);
+	}
 	if (flags.left == 0)
 		count += ft_print_c(c);
 	return (count);

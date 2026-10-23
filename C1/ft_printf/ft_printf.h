@@ -6,7 +6,7 @@
 /*   By: mbihti <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/18 12:21:54 by mbihti            #+#    #+#             */
-/*   Updated: 2026/10/19 20:05:10 by mbihti           ###   ########.fr       */
+/*   Updated: 2026/10/23 09:05:21 by mbihti           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int		ft_print_arg(char type, va_list args, t_flags flags);
 int		ft_print_char(char c, t_flags flags);
 int		ft_print_c(char c);
 // s
-int		ft_print_str(const char *str, t_flags flags);
+int		ft_print_str(const char *str, t_flags *flags);
 int		ft_print_s(const char *str);
 int		ft_print_s_pre(const char *str, int precision);
 int		ft_print_sign_pre(int n, t_flags *flags);

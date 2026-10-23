@@ -28,3 +28,17 @@ int	ft_memcmp(const void *s1, const	void *s2, size_t n)
 	}
 	return (0);
 }
+
+// #include <memory.h>
+// #include <stdio.h>
+// int main()
+// {
+// 	char str[] = "agooa";
+// 	char str1[] = "agoob";
+// 	int result ;
+// 	// result = ft_memcmp(NULL, str1, 5);
+// 	// printf("org: %d \n", result);
+//
+// 	result = memcmp(str, NULL, 5);
+// 	printf("cpy: %d \n", result);
+// }
