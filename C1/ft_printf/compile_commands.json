@@ -1,0 +1,50 @@
+[
+  {
+    "file": "ft_print_char.c",
+    "arguments": [
+      "/usr/bin/cc",
+      "-c",
+      "-o",
+      "ft_print_char.o",
+      "ft_print_char.c"
+    ],
+    "directory": "/home/agosso/42/Ranks/agoos001-42/C1/ft_printf",
+    "output": "ft_print_char.o"
+  },
+  {
+    "file": "ft_flags_utils.c",
+    "arguments": [
+      "/usr/bin/cc",
+      "-c",
+      "-o",
+      "ft_flags_utils.o",
+      "ft_flags_utils.c"
+    ],
+    "directory": "/home/agosso/42/Ranks/agoos001-42/C1/ft_printf",
+    "output": "ft_flags_utils.o"
+  },
+  {
+    "file": "ft_printf.c",
+    "arguments": [
+      "/usr/bin/cc",
+      "-c",
+      "-o",
+      "ft_printf.o",
+      "ft_printf.c"
+    ],
+    "directory": "/home/agosso/42/Ranks/agoos001-42/C1/ft_printf",
+    "output": "ft_printf.o"
+  },
+  {
+    "file": "ft_print_str.c",
+    "arguments": [
+      "/usr/bin/cc",
+      "-c",
+      "-o",
+      "ft_print_str.o",
+      "ft_print_str.c"
+    ],
+    "directory": "/home/agosso/42/Ranks/agoos001-42/C1/ft_printf",
+    "output": "ft_print_str.o"
+  }
+]
