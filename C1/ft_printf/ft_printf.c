@@ -17,7 +17,6 @@ int	ft_print_arg(char type, va_list args, t_flags flags)
 {
 	int	count;
 	
-	write(2, &type, 1);
 	count = 0;
 	if (type == 'c')
 		count += ft_print_char(va_arg(args, int), flags);
@@ -32,7 +31,11 @@ int	ft_parse_flags(const char *str, int i, va_list args, t_flags *flags)
 	{
 		if (str[i] == '#')
 			flags->hash = 1;
-		if (ft_isspec(str[i]))
+		else if (str[i] == '.')
+		{
+			count += ft_flag_precision
+		}
+		else if (ft_isspec(str[i]))
 		{
 			flags->spec = str[i];
 			return (i);
