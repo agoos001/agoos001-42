@@ -16,7 +16,8 @@
 int	ft_print_arg(char type, va_list args, t_flags flags)
 {
 	int	count;
-
+	
+	write(2, &type, 1);
 	count = 0;
 	if (type == 'c')
 		count += ft_print_char(va_arg(args, int), flags);
@@ -27,7 +28,7 @@ int	ft_print_arg(char type, va_list args, t_flags flags)
 
 int	ft_parse_flags(const char *str, int i, va_list args, t_flags *flags)
 {
-	while (str[i] && ft_istype(str[i]))
+	while (str[++i] && ft_istype(str[i]))
 	{
 		if (str[i] == '#')
 			flags->hash = 1;
@@ -36,7 +37,6 @@ int	ft_parse_flags(const char *str, int i, va_list args, t_flags *flags)
 			flags->spec = str[i];
 			return (i);
 		}
-		i++;
 	}
 	return (i);
 }
@@ -58,7 +58,7 @@ int	ft_parse(char *str, va_list args)
 			x = ft_parse_flags(str, i, args, &flags);
 			if (flags.spec > 0)
 				i = x;
-			if (str[i] != '\0' && flags.spec > 0 && ft_istype(str[i]))
+			if (str[i] != '\0' && flags.spec > 0 && ft_isspec(str[i]))
 				count += ft_print_arg(str[i], args, flags);
 			else if (str[i])
 				count += ft_print_c(str[i]);	
@@ -68,8 +68,6 @@ int	ft_parse(char *str, va_list args)
 	}
 	return (count);
 }
-
-
 
 int	ft_printf(const char *format, ...)
 {

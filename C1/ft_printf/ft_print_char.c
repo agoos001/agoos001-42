@@ -23,7 +23,7 @@ int	ft_print_char(char c, t_flags flags)
 	int	count;
 
 	count = 0;
-	if (flags.left)
+	if (flags.left > 0)
 	{
 		count += ft_print_c(c);
 		count += ft_pad_width(flags.width, 1, flags.zero);
