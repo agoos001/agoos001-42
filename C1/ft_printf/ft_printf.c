@@ -31,10 +31,10 @@ int	ft_parse_flags(const char *str, int i, va_list args, t_flags *flags)
 	{
 		if (str[i] == '#')
 			flags->hash = 1;
+		else if (ft_isdigit(str[i]))
+			i += ft_width_flag(str, i, flags);
 		else if (str[i] == '.')
-		{
-			count += ft_flag_precision
-		}
+			i += ft_precision_flag(str, i, flags);
 		else if (ft_isspec(str[i]))
 		{
 			flags->spec = str[i];

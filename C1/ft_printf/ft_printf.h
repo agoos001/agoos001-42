@@ -19,12 +19,6 @@
 # include <stdio.h>
 # include "libft/libft.h"
 
-# if defined (__linux__)
-#  define PTRNULL "(nil)"
-# elif defined (__APPLE__)
-#  define PTRNULL "0x0"
-# endif
-
 /* ---------- FLAGS --------------------- */
 typedef struct s_flags
 {
@@ -42,9 +36,8 @@ typedef struct s_flags
 t_flags	ft_flags_init(void);
 t_flags	ft_flag_left(t_flags flags);
 t_flags	ft_flag_digit(char c, t_flags flags);
-t_flags	ft_flag_width(va_list args, t_flags flags);
-int		ft_flag_precision(const char *str, int pos,
-			va_list args, t_flags *flags);
+int		ft_width_flag(const char *str, int pos, t_flags *flags);
+int		ft_precision_flag(const char *str, int pos, t_flags *flags);
 
 /* ---------- PRINTF -------------------- */
 int		ft_printf(const char *format, ...);

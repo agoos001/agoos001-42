@@ -17,7 +17,7 @@ t_flags	ft_flags_init(void)
 	t_flags flags;
 
 	flags.spec = 0;
-	flags.width = 0;
+	flags.width = -1;
 	flags.left = 0;
 	flags.zero = 0;
 	flags.star = 0;
@@ -61,6 +61,34 @@ int	ft_pad_width(int total_width, int size, int zero)
 		else
 			count += ft_print_c(' ');
 		total_width--;
+	}
+	return (count);
+}
+
+int	ft_precision_flag(const char *str, int pos, t_flags *flags)
+{
+	int	count;
+
+	count = 0;
+	flags->precision = 0;
+	while(str[++pos] && ft_isdigit(str[pos]))
+	{
+		flags->precision = flags->precision * 10 + str[pos] - '0';
+		count++;
+	}
+	return (count);
+}
+
+int	ft_width_flag(const char *str, int pos , t_flags *flags)
+{
+	int	count;
+
+	count = 0;
+	flags->width = 0;
+	while (str[pos] && ft_isdigit(str[pos]))
+	{
+		flags->width = flags->width * 10 + str[pos++] - '0';
+		count++;
 	}
 	return (count);
 }
