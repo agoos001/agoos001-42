@@ -12,17 +12,13 @@
 
 #include "ft_printf.h"
 
-int	ft_print_s_pre_width(const char *s, int precision, int width)
+int	ft_print_s_pre_width(const char *s, int precision)
 {
 	int	count;
 	size_t s_len;
 
 	count = 0;
-	s_len = ft_strlen(s);
-	if (s_len < precision)
-		precision = s_len;
-	if (width != -1 && precision > width)
-		precision = width;
+	// s_len = ft_strlen(s);
 	while (*s && count < precision)
 	{
 		write(1, s++, 1);
@@ -49,14 +45,29 @@ int	ft_print_str(const char *str, t_flags *flags)
 	int	count;
 
 	count = 0;
-	
-	
+	if (str == NULL && flags->precision >= 0 && flags->precision < 6) // the null strint padding
+	{
+		count += ft_pad_width(flags->width, 0, 0);
+		return (count);
+	}
+	if (str == NULL)
+		str = "(null)";
+
 	if (flags->left)
-		count += ft_print_string(str);
+	{
 	if (flags->precision >= 0)
-		count += ft_print_s_pre_width(str, flags->precision, 
-								flags->width);
-	else if (flags->precision && !flags->left)
+		count += ft_print_s_pre_width(str, flags->precision);
+	else
+		count += ft_print_string(str);
+	}
+	if (flags->precision >= 0)
+		count += ft_pad_width(flags->width, flags->precision, 0);
+	else
+		count += ft_pad_width(flags->width, ft_strlen(str), 0); 
+	
+	if (!flags->left && flags->precision >= 0)
+		count += ft_print_s_pre_width(str, flags->precision);
+	else if (!flags->left)
 		count += ft_print_string(str);
 	return (count);
 }
