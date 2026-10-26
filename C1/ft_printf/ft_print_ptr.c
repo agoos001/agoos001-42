@@ -12,7 +12,18 @@
 
 #include "ft_printf.h"
 
+int	ft_print_add(unsigned long nbr)
+{
+	if (n > )
+}
+
 int	g_print_ptr(void *ptr, t_flags flags)
 {
-	
+	int	count;	
+	unsigned long p_nbr;
+
+	p_nbr = (unsigned long) ptr;
+	count = 0;
+
+	return (count);
 }

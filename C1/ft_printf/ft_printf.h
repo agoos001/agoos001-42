@@ -65,7 +65,7 @@ int		ft_print_hex(unsigned int n, int is_upper, t_flags flags);
 int		ft_print_x(char *nbstr, int n, int is_upper, t_flags flags);
 int		ft_print_hexadec(char *nbstr, int n, int is_upper, t_flags flags);
 // p
-int		g_print_ptr(unsigned int n, t_flags flags);
+int		g_print_ptr(void *ptr, t_flags flags);
 int		ft_print_p(unsigned long int n);
 void	ft_print_adr(unsigned long int n);
 
