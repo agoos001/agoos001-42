@@ -22,7 +22,7 @@ int	ft_print_arg(char type, va_list args, t_flags *flags)
 		count += ft_print_char(va_arg(args, int), flags);
 	else if (type == 's')
 		count += g_print_str(va_arg(args, const char *), flags);
-	else if (type == 'd')
+	else if (type == 'd' || type == 'i')
 		count += g_print_int(va_arg(args, int), flags);
 	return (count);
 }

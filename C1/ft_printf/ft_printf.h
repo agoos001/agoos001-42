@@ -6,7 +6,7 @@
 /*   By: mbihti <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/18 12:21:54 by mbihti            #+#    #+#             */
-/*   Updated: 2026/10/25 19:57:56 by mbihti           ###   ########.fr       */
+/*   Updated: 2026/10/26 08:55:15 by mbihti           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ int		ft_print_hex(unsigned int n, int is_upper, t_flags flags);
 int		ft_print_x(char *nbstr, int n, int is_upper, t_flags flags);
 int		ft_print_hexadec(char *nbstr, int n, int is_upper, t_flags flags);
 // p
-int		ft_print_ptr(unsigned long int n, t_flags flags);
+int		g_print_ptr(unsigned int n, t_flags flags);
 int		ft_print_p(unsigned long int n);
 void	ft_print_adr(unsigned long int n);
 
