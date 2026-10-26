@@ -6,7 +6,7 @@
 /*   By: mbihti <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/18 12:04:23 by mbihti            #+#    #+#             */
-/*   Updated: 2026/10/25 19:58:06 by mbihti           ###   ########.fr       */
+/*   Updated: 2026/10/26 13:26:09 by mbihti           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,10 @@ int	ft_print_arg(char type, va_list args, t_flags *flags)
 		count += g_print_str(va_arg(args, const char *), flags);
 	else if (type == 'd' || type == 'i')
 		count += g_print_int(va_arg(args, int), flags);
+	else if (type == 'p')
+		count += g_print_ptr(va_arg(args, void *), flags);
+	else if (type == 'u')
+		count += g_print_unsigned(va_arg(args, unsigned int), flags);
 	return (count);
 }
 

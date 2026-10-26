@@ -27,7 +27,7 @@ int	ft_print_s_pre_width(const char *s, int precision)
 	return (count);
 }
 
-int	ft_print_string(const char *s)
+int	ft_print_s(const char *s)
 {
 	int count;
 
@@ -58,7 +58,7 @@ int	g_print_str(const char *str, t_flags *flags)
 	if (flags->precision >= 0)
 		count += ft_print_s_pre_width(str, flags->precision);
 	else
-		count += ft_print_string(str);
+		count += ft_print_s(str);
 	}
 	if (flags->precision >= 0)
 		count += ft_pad_width(flags->width, flags->precision, 0);
@@ -68,7 +68,7 @@ int	g_print_str(const char *str, t_flags *flags)
 	if (!flags->left && flags->precision >= 0)
 		count += ft_print_s_pre_width(str, flags->precision);
 	else if (!flags->left)
-		count += ft_print_string(str);
+		count += ft_print_s(str);
 	return (count);
 }
 

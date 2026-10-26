@@ -22,7 +22,18 @@ int main()
 	// ft_printf("cpy: %10d\n", 10);
 	// printf("org: %10d\n", 10);
 	
-	ft_printf("cpy: %10i\n", 10);
-	printf("org: %10i\n", 10);
+	// ft_printf("cpy: %10i\n", 10);
+	// printf("org: %10i\n", 10);
+
+
+	// -----------------p -----------------
+	// int integer = 20;
+	// int *ptr = &integer;
+	// ft_printf("cpy: %-20.5p\n", ptr);
+	// printf("org: %-20.5p\n", ptr);
+	
+	// ----------------u------
+	ft_printf("cpy: %u\n", 10);
+	printf("org: %u\n", 10u);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: mbihti <mbihti@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/25 19:30:26 by mbihti            #+#    #+#             */
-/*   Updated: 2026/10/25 20:19:23 by mbihti           ###   ########.fr       */
+/*   Updated: 2026/10/26 12:48:37 by mbihti           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,11 @@ int	g_print_int(int	nbr, t_flags *flags)
 	char *s_nbr;
 	
 	s_nbr = ft_itoa(nbr);
+	if (!s_nbr)
+		return (0);
 	g_print_str(s_nbr, flags);
 	count = ft_strlen(s_nbr);
+	free (s_nbr);
 	return (count);
 }
 
