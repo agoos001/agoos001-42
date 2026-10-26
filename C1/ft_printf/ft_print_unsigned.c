@@ -6,7 +6,7 @@
 /*   By: mbihti <mbihti@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/26 11:45:31 by mbihti            #+#    #+#             */
-/*   Updated: 2026/10/26 13:45:54 by mbihti           ###   ########.fr       */
+/*   Updated: 2026/10/26 14:44:32 by mbihti           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int	g_print_unsigned(unsigned int nbr, t_flags *flags)
 	int count;
 	char	*s_nbr;
 	count = 0;
-	s_nbr = ft_itoa(nbr);
+	s_nbr = ft_utoa(nbr);
 	if (!s_nbr)
 		return (0);
 	if (flags->precision == 0 && nbr == 0)

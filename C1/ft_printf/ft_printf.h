@@ -6,7 +6,7 @@
 /*   By: mbihti <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/18 12:21:54 by mbihti            #+#    #+#             */
-/*   Updated: 2026/10/26 13:24:56 by mbihti           ###   ########.fr       */
+/*   Updated: 2026/10/26 14:44:28 by mbihti           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ void	ft_print_add(unsigned long nbr);
 
 /* ---------- HELPER FUNCTIONS ---------- */
 char	*ft_printf_itoa(long nb);
-char	*ft_printf_utoa(unsigned int nb);
+char	*ft_utoa(unsigned int nb);
 char	*ft_printf_xtoa(unsigned long int nb, int is_upper);
 int		ft_unint_len(unsigned int n);
 int		ft_hex_len(unsigned int n);

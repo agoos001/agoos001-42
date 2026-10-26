@@ -33,7 +33,7 @@ int main()
 	// printf("org: %-20.5p\n", ptr);
 	
 	// ----------------u------
-	ft_printf("cpy: %u\n", 10);
-	printf("org: %u\n", 10u);
+	ft_printf("cpy: %20u\n", -1);
+	printf("org: %20u\n", -1);
 	return (0);
 }
