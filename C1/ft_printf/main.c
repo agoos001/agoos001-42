@@ -11,8 +11,10 @@ int main()
 	// ft_printf("cpy: %.s\n", "is the bes");
 	// printf("org: %.s\n", "is the bes");
 
-	ft_printf("cpy: %-20s\n", "agoos");
-	printf("org: %-20.5s\n", "agoos");
+	// ft_printf("cpy: %-20s\n", "agoos");
+	// printf("org: %-20.5s\n", "agoos");
 
+	ft_printf("cpy: %d\n", 10);
+	printf("org: %d\n", 10);
 	return (0);
 }

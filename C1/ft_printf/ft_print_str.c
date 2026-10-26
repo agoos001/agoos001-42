@@ -6,7 +6,7 @@
 /*   By: mbihti <mbihti@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/23 08:16:41 by mbihti            #+#    #+#             */
-/*   Updated: 2026/10/23 09:05:59 by mbihti           ###   ########.fr       */
+/*   Updated: 2026/10/25 19:59:22 by mbihti           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int	ft_print_string(const char *s)
 	return (count);
 }
 
-int	ft_print_str(const char *str, t_flags *flags)
+int	g_print_str(const char *str, t_flags *flags)
 {
 	int	count;
 

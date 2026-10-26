@@ -6,14 +6,14 @@
 #    By: mbihti <mbihti@student.1337.ma>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/10/19 20:29:21 by mbihti            #+#    #+#              #
-#    Updated: 2026/10/23 09:12:19 by mbihti           ###   ########.fr        #
+#    Updated: 2026/10/25 19:51:13 by mbihti           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC:= cc
 # FLAGS:= -Wall -Werror -Wextra
 
-SRC:= ft_print_char.c ft_flags_utils.c ft_printf.c ft_print_str.c
+SRC:= ft_print_char.c ft_flags_utils.c ft_printf.c ft_print_str.c ft_print_int.c
 OBJS:= $(SRC:.c=.o)
 HEADER:= ft_printf.h
 

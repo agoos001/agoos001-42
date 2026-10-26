@@ -6,22 +6,24 @@
 /*   By: mbihti <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/18 12:04:23 by mbihti            #+#    #+#             */
-/*   Updated: 2026/10/23 09:20:11 by mbihti           ###   ########.fr       */
+/*   Updated: 2026/10/25 19:58:06 by mbihti           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
 
-int	ft_print_arg(char type, va_list args, t_flags flags)
+int	ft_print_arg(char type, va_list args, t_flags *flags)
 {
 	int	count;
 	
 	count = 0;
 	if (type == 'c')
 		count += ft_print_char(va_arg(args, int), flags);
-	if (type == 's')
-		count += ft_print_str(va_arg(args, const char *), &flags);
+	else if (type == 's')
+		count += g_print_str(va_arg(args, const char *), flags);
+	else if (type == 'd')
+		count += g_print_int(va_arg(args, int), flags);
 	return (count);
 }
 
@@ -64,7 +66,7 @@ int	ft_parse(char *str, va_list args)
 			if (flags.spec > 0)
 				i = x;
 			if (str[i] != '\0' && flags.spec > 0 && ft_isspec(str[i]))
-				count += ft_print_arg(str[i], args, flags);
+				count += ft_print_arg(str[i], args, &flags);
 			else if (str[i])
 				count += ft_print_c(str[i]);	
 		}
