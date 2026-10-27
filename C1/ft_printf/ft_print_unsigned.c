@@ -44,10 +44,13 @@ int	g_print_unsigned(unsigned int nbr, t_flags *flags)
 {
 	int count;
 	char	*s_nbr;
+	size_t	s_len;
+
 	count = 0;
 	s_nbr = ft_utoa(nbr);
 	if (!s_nbr)
 		return (0);
+	s_len = ft_strlen(s_nbr);
 	if (flags->precision == 0 && nbr == 0)
 	{
 		count += ft_pad_width(flags->width, 0, flags->zero);
@@ -55,8 +58,10 @@ int	g_print_unsigned(unsigned int nbr, t_flags *flags)
 	}
 	if (flags->left == 1)
 		count += ft_print_u(s_nbr, flags);
-	if (flags->width != -1)
-		count += ft_pad_width(flags->width, ft_strlen(s_nbr), flags->zero);
+	if (flags->width > 0 && flags->precision > s_len)
+		count += ft_pad_width(flags->width, flags->precision, 0);
+	else 
+		count += ft_pad_width(flags->width, s_len, 0);
 	if (flags->left == 0)
 		count += ft_print_u(s_nbr, flags);
 	return (count);

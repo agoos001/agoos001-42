@@ -6,7 +6,7 @@
 #    By: mbihti <mbihti@student.1337.ma>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/10/19 20:29:21 by mbihti            #+#    #+#              #
-#    Updated: 2026/10/26 14:44:47 by mbihti           ###   ########.fr        #
+#    Updated: 2026/10/27 07:35:18 by mbihti           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ CC:= cc
 # FLAGS:= -Wall -Werror -Wextra
 
 SRC:= ft_print_char.c ft_flags_utils.c ft_printf.c ft_print_str.c ft_print_int.c \
-	  ft_print_ptr.c ft_print_unsigned.c ft_utoa.c
+	  ft_print_ptr.c ft_print_unsigned.c ft_utils.c
 OBJS:= $(SRC:.c=.o)
 HEADER:= ft_printf.h
 

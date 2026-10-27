@@ -28,6 +28,8 @@ int	ft_print_arg(char type, va_list args, t_flags *flags)
 		count += g_print_ptr(va_arg(args, void *), flags);
 	else if (type == 'u')
 		count += g_print_unsigned(va_arg(args, unsigned int), flags);
+	else if (type == 'x')
+		count += g_print_hex(va_arg(args, unsigned int), 0, flags);
 	return (count);
 }
 
