@@ -14,7 +14,7 @@
 
 t_flags	ft_flags_init(void)
 {
-	t_flags flags;
+	t_flags	flags;
 
 	flags.spec = 0;
 	flags.width = -1;
@@ -32,10 +32,9 @@ int	ft_istype(int c)
 {
 	return (ft_isflag(c) || ft_isdigit(c) || ft_isspec(c));
 }
-
 int	ft_isflag(int c)
 {
-	if (c == '-' || c == '*' || c == '-' || c == '+' 
+	if (c == '-' || c == '*' || c == '-' || c == '+'
 		|| c == '#' || c == ' ' || c == '.')
 		return (1);
 	return (0);
@@ -71,7 +70,7 @@ int	ft_precision_flag(const char *str, int pos, t_flags *flags)
 
 	count = 0;
 	flags->precision = 0;
-	while(str[++pos] && ft_isdigit(str[pos]))
+	while (str[++pos] && ft_isdigit(str[pos]))
 	{
 		flags->precision = flags->precision * 10 + str[pos] - '0';
 		count++;
@@ -79,7 +78,7 @@ int	ft_precision_flag(const char *str, int pos, t_flags *flags)
 	return (count);
 }
 
-int	ft_width_flag(const char *str, int pos , t_flags *flags)
+int	ft_width_flag(const char *str, int pos, t_flags *flags)
 {
 	int	count;
 

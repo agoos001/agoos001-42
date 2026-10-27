@@ -63,8 +63,8 @@ int		ft_print_i(char *nbstr, int n, t_flags flags);
 int		g_print_unsigned(unsigned int nbr, t_flags *flags);
 int		ft_print_u(const char *s_nbr, t_flags *flags);
 // x, X
-int		g_print_hex(unsigned long nb, int is_upper, t_flags *flags);
-int		ft_print_x(char *nbstr, int n, int is_upper, t_flags flags);
+int	g_print_hex(unsigned long nb, int is_upper, t_flags *flags);
+int		ft_print_h(char *s_nbr, t_flags *flags);
 int		ft_print_hexadec(char *nbstr, int n, int is_upper, t_flags flags);
 // p
 int		g_print_ptr(void *ptr, t_flags *flags);

@@ -12,13 +12,14 @@
 
 #include "ft_printf.h"
 
-
 int	ft_print_arg(char type, va_list args, t_flags *flags)
 {
 	int	count;
-	
+
 	count = 0;
-	if (type == 'c')
+	if (type == '%')
+		count += ft_print_c('%');
+	else if (type == 'c')
 		count += ft_print_char(va_arg(args, int), flags);
 	else if (type == 's')
 		count += g_print_str(va_arg(args, const char *), flags);
@@ -29,7 +30,9 @@ int	ft_print_arg(char type, va_list args, t_flags *flags)
 	else if (type == 'u')
 		count += g_print_unsigned(va_arg(args, unsigned int), flags);
 	else if (type == 'x')
-		count += g_print_hex(va_arg(args, unsigned int), 0, flags);
+		count += g_print_hex(va_arg(args, unsigned long), 0, flags);
+	else if (type == 'X')
+		count += g_print_hex(va_arg(args, unsigned long), 1, flags);
 	return (count);
 }
 
@@ -74,7 +77,7 @@ int	ft_parse(char *str, va_list args)
 			if (str[i] != '\0' && flags.spec > 0 && ft_isspec(str[i]))
 				count += ft_print_arg(str[i], args, &flags);
 			else if (str[i])
-				count += ft_print_c(str[i]);	
+				count += ft_print_c(str[i]);
 		}
 		else
 			count += ft_print_c(str[i]);

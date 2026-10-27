@@ -38,7 +38,14 @@ int main()
 	
 
 	//-----------------x-X-------------
-	ft_printf("cpy:%x\n", "agoos");
-	printf("org:%#.1x\n", 20);
+	// ft_printf("cpy:%#20.5X\n", 255);
+	// printf("org:%#20.5X\n", 255);
+	// ft_printf("cpy:%#20.0X\n", 0);
+	// printf("org:%#20.0X\n", 0);
+	
+	//----------------%%----------
+
+	 ft_printf("cpy:%10.0%\n", 0);
+	 printf("org:%10.0%\n", 0);
 	return (0);
 }

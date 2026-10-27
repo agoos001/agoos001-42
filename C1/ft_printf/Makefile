@@ -14,7 +14,7 @@ CC:= cc
 # FLAGS:= -Wall -Werror -Wextra
 
 SRC:= ft_print_char.c ft_flags_utils.c ft_printf.c ft_print_str.c ft_print_int.c \
-	  ft_print_ptr.c ft_print_unsigned.c ft_utils.c
+	  ft_print_ptr.c ft_print_unsigned.c ft_utils.c ft_print_hex.c
 OBJS:= $(SRC:.c=.o)
 HEADER:= ft_printf.h
 

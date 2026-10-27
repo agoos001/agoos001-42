@@ -15,9 +15,9 @@
 /////////////////////////////////////////////
 // -----------------utoa--------------------
 ////////////////////////////////////////////
-size_t nbr_len(unsigned int nb)
+size_t	nbr_len(unsigned int nb)
 {
-	int count;
+	int	count;
 
 	if (nb == 0)
 		return (1);
@@ -48,7 +48,6 @@ char	*ft_utoa(unsigned int nb)
 	return (result);
 }
 
-
 /////////////////////////////////////////////
 // -----------------xtoa--------------------
 ////////////////////////////////////////////
@@ -73,8 +72,9 @@ void	ft_isupper(char *result, int is_upper)
 	{
 		while (*result)
 		{
-			if (*result >= 'a' || *result <= 'z')
+			if (*result >= 'a' && *result <= 'z')
 				*result -= 32;
+			result++;
 		}
 	}
 }
@@ -82,17 +82,17 @@ void	ft_isupper(char *result, int is_upper)
 char	*ft_xtoa(unsigned long nb, int	is_upper)
 {
 	char	*result;
-	size_t	h_len;
+	int		h_len;
 
 	h_len = hex_len(nb);
 	result = malloc(h_len + 1);
 	if (!result)
 		return (NULL);
-	result[h_len] = '\0';
-	while (nb)
+	result[h_len--] = '\0';
+	while (h_len >= 0)
 	{
 		result[h_len] = nb % 16;
-		if (nb % 16 >= 10)
+		if (nb % 16 <= 10)
 			result[h_len] += '0';
 		else
 			result[h_len] += ('a' - 10);
@@ -102,20 +102,3 @@ char	*ft_xtoa(unsigned long nb, int	is_upper)
 	ft_isupper(result, is_upper);
 	return (result);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
