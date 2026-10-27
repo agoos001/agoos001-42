@@ -6,7 +6,7 @@
 /*   By: mbihti <mbihti@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/27 07:31:04 by mbihti            #+#    #+#             */
-/*   Updated: 2026/10/27 09:42:34 by mbihti           ###   ########.fr       */
+/*   Updated: 2026/10/27 09:44:08 by mbihti           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,11 @@
 
 int	ft_print_h(char *s_nbr,unsigned n,  t_flags *flags)
 {
-	int	count
+	int	count;
+
+	count = 0;
+
+	return (count);
 }
 
 int	ft_print_prefix(int	is_upper)
