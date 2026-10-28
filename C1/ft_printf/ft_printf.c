@@ -44,6 +44,12 @@ int	ft_parse_flags(const char *str, int i, va_list args, t_flags *flags)
 			flags->hash = 1;
 		if (str[i] == '-')
 			flags->left = 1;
+		if (str[i] == '+')
+			flags->plus = 1;
+		if (str[i] == ' ')
+			flags->space = 1;		
+		if (str[i] == '0')
+			flags->zero = 1;
 		if (ft_isdigit(str[i]))
 			i += ft_width_flag(str, i, flags);
 		if (str[i] == '.')

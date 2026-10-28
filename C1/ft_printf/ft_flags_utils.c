@@ -20,7 +20,6 @@ t_flags	ft_flags_init(void)
 	flags.width = -1;
 	flags.left = 0;
 	flags.zero = 0;
-	flags.star = 0;
 	flags.precision = -1;
 	flags.hash = 0;
 	flags.space = 0;

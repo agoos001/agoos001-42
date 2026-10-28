@@ -39,7 +39,7 @@ int	ft_print_prefix(int is_upper)
 	return (count);
 }
 
-int	g_print_hex(unsigned long nb, int is_upper, t_flags *flags)
+int	g_print_hex(unsigned int nb, int is_upper, t_flags *flags)
 {
 	int		count;
 	char	*s_nbr;

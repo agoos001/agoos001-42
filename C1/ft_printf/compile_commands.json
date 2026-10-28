@@ -46,5 +46,65 @@
     ],
     "directory": "/home/agosso/42/Ranks/agoos001-42/C1/ft_printf",
     "output": "ft_print_str.o"
+  },
+  {
+    "file": "ft_print_int.c",
+    "arguments": [
+      "/usr/bin/cc",
+      "-c",
+      "-o",
+      "ft_print_int.o",
+      "ft_print_int.c"
+    ],
+    "directory": "/home/agosso/42/Ranks/agoos001-42/C1/ft_printf",
+    "output": "ft_print_int.o"
+  },
+  {
+    "file": "ft_print_ptr.c",
+    "arguments": [
+      "/usr/bin/cc",
+      "-c",
+      "-o",
+      "ft_print_ptr.o",
+      "ft_print_ptr.c"
+    ],
+    "directory": "/home/agosso/42/Ranks/agoos001-42/C1/ft_printf",
+    "output": "ft_print_ptr.o"
+  },
+  {
+    "file": "ft_print_unsigned.c",
+    "arguments": [
+      "/usr/bin/cc",
+      "-c",
+      "-o",
+      "ft_print_unsigned.o",
+      "ft_print_unsigned.c"
+    ],
+    "directory": "/home/agosso/42/Ranks/agoos001-42/C1/ft_printf",
+    "output": "ft_print_unsigned.o"
+  },
+  {
+    "file": "ft_utils.c",
+    "arguments": [
+      "/usr/bin/cc",
+      "-c",
+      "-o",
+      "ft_utils.o",
+      "ft_utils.c"
+    ],
+    "directory": "/home/agosso/42/Ranks/agoos001-42/C1/ft_printf",
+    "output": "ft_utils.o"
+  },
+  {
+    "file": "ft_print_hex.c",
+    "arguments": [
+      "/usr/bin/cc",
+      "-c",
+      "-o",
+      "ft_print_hex.o",
+      "ft_print_hex.c"
+    ],
+    "directory": "/home/agosso/42/Ranks/agoos001-42/C1/ft_printf",
+    "output": "ft_print_hex.o"
   }
 ]

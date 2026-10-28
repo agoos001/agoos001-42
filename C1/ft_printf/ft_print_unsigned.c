@@ -42,9 +42,9 @@ static int	ft_nbr_len(unsigned int nb)
 
 int	g_print_unsigned(unsigned int nbr, t_flags *flags)
 {
-	int count;
+	int		count;
 	char	*s_nbr;
-	size_t	s_len;
+	int		s_len;
 
 	count = 0;
 	s_nbr = ft_utoa(nbr);
@@ -60,7 +60,7 @@ int	g_print_unsigned(unsigned int nbr, t_flags *flags)
 		count += ft_print_u(s_nbr, flags);
 	if (flags->width > 0 && flags->precision > s_len)
 		count += ft_pad_width(flags->width, flags->precision, 0);
-	else 
+	else
 		count += ft_pad_width(flags->width, s_len, 0);
 	if (flags->left == 0)
 		count += ft_print_u(s_nbr, flags);

@@ -29,7 +29,6 @@ typedef struct s_flags
 	int	width;
 	int	left;
 	int	zero;
-	int	star;
 	int	precision;
 	int	hash;
 	int	space;
@@ -37,8 +36,6 @@ typedef struct s_flags
 }		t_flags;
 
 t_flags	ft_flags_init(void);
-t_flags	ft_flag_left(t_flags flags);
-t_flags	ft_flag_digit(char c, t_flags flags);
 int		ft_width_flag(const char *str, int pos, t_flags *flags);
 int		ft_precision_flag(const char *str, int pos, t_flags *flags);
 
@@ -57,25 +54,21 @@ int		ft_print_s_pre(const char *str, int precision);
 int		ft_print_sign_pre(int n, t_flags *flags);
 // i, d
 int		g_print_int(int nbr, t_flags *flags);
-int		ft_print_integer(char *nbstr, int n, t_flags flags);
-int		ft_print_i(char *nbstr, int n, t_flags flags);
+int		ft_print_s_int(const char *str, t_flags *flags);
 // u
 int		g_print_unsigned(unsigned int nbr, t_flags *flags);
 int		ft_print_u(const char *s_nbr, t_flags *flags);
 // x, X
-int	g_print_hex(unsigned long nb, int is_upper, t_flags *flags);
+int		g_print_hex(unsigned int nb, int is_upper, t_flags *flags);
 int		ft_print_h(char *s_nbr, t_flags *flags);
-int		ft_print_hexadec(char *nbstr, int n, int is_upper, t_flags flags);
 // p
 int		g_print_ptr(void *ptr, t_flags *flags);
 int		ft_print_p(unsigned long int n);
 void	ft_print_add(unsigned long nbr);
 
 /* ---------- HELPER FUNCTIONS ---------- */
-char	*ft_printf_itoa(long nb);
 char	*ft_utoa(unsigned int nb);
 char	*ft_xtoa(unsigned long int nb, int is_upper);
-int		ft_unint_len(unsigned int n);
 int		ft_hex_len(unsigned int n);
 int		ft_ptr_len(unsigned long int n);
 int		ft_istype(int c);

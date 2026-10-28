@@ -92,7 +92,7 @@ char	*ft_xtoa(unsigned long nb, int	is_upper)
 	while (h_len >= 0)
 	{
 		result[h_len] = nb % 16;
-		if (nb % 16 <= 10)
+		if (nb % 16 < 10)
 			result[h_len] += '0';
 		else
 			result[h_len] += ('a' - 10);
