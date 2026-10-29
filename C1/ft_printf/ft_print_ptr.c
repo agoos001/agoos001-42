@@ -6,7 +6,7 @@
 /*   By: mbihti <mbihti@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/26 08:08:33 by mbihti            #+#    #+#             */
-/*   Updated: 2026/10/26 09:44:30 by mbihti           ###   ########.fr       */
+/*   Updated: 2026/10/29 06:33:25 by mbihti           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ static int	ft_nbr_len(unsigned long nb)
 	return (count);
 }
 
-int	ft_print_p(unsigned long nbr)
+int	ft_print_p(unsigned long nbr, t_flags *flags)
 {
 	int	count;
 
@@ -49,6 +49,7 @@ int	ft_print_p(unsigned long nbr)
 	if (nbr == 0)
 	{
 		count += ft_print_s(PTRNULL);
+		flags->width -= 3;
 		return (count);
 	}
 	else
@@ -69,13 +70,13 @@ int	g_print_ptr(void *ptr, t_flags *flags)
 	count = 0;
 
 	if (flags->left)
-		count += ft_print_p(p_nbr);
+		count += ft_print_p(p_nbr, flags);
 	if (flags->width)
 	{
-		ft_pad_width(flags->width, ft_nbr_len(p_nbr) + 2, flags->zero);	
+		count += ft_pad_width(flags->width, ft_nbr_len(p_nbr) + 2, flags->zero);	
 	}
 	if (!flags->left)
-		count += ft_print_p(p_nbr);
+		count += ft_print_p(p_nbr, flags);
 
 	return (count);
 }

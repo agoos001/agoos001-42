@@ -6,7 +6,7 @@
 /*   By: mbihti <mbihti@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/27 07:31:04 by mbihti            #+#    #+#             */
-/*   Updated: 2026/10/27 09:44:08 by mbihti           ###   ########.fr       */
+/*   Updated: 2026/10/29 07:31:39 by mbihti           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,21 +39,12 @@ int	ft_print_prefix(int is_upper)
 	return (count);
 }
 
-int	g_print_hex(unsigned int nb, int is_upper, t_flags *flags)
+int	ft_print_hex(char *s_nbr, unsigned int nb, int is_upper, t_flags *flags)
 {
-	int		count;
-	char	*s_nbr;
-	size_t	s_len;
+	int	count;
+	int	s_len;
 
 	count = 0;
-	if (nb == 0 && flags->precision == 0)
-	{
-		count += ft_pad_width(flags->width, 0, 0); // -1 => "0"
-		return (count);
-	}
-	s_nbr = ft_xtoa(nb, is_upper);
-	if (!s_nbr)
-		return (0);
 	s_len = ft_strlen(s_nbr);
 	if (flags->left)
 	{
@@ -73,5 +64,23 @@ int	g_print_hex(unsigned int nb, int is_upper, t_flags *flags)
 			count += ft_print_prefix(is_upper);
 		count += ft_print_h(s_nbr, flags);
 	}
+	return (count);
+}
+
+int	g_print_hex(unsigned int nb, int is_upper, t_flags *flags)
+{
+	int		count;
+	char	*s_nbr;
+
+	count = 0;
+	if (nb == 0 && flags->precision == 0)
+	{
+		count += ft_pad_width(flags->width, 0, 0);
+		return (count);
+	}
+	s_nbr = ft_xtoa(nb, is_upper);
+	if (!s_nbr)
+		return (0);
+	count += ft_print_hex(s_nbr, nb, is_upper, flags);
 	return (count);
 }

@@ -389,11 +389,14 @@ void	test_bonus_int(void)
 	x = printf("  Or:\tNumber [%20i]\n", 42);
 	y = ft_printf("  Ft:\tNumber [%20i]\n", 42);
 	printf("Printf = %d, ft_printf = %d\n\n", x, y);
+
 	printf("\n----------- TEST: ZERO INT -----------\n\n");
+
 	x = printf("  Or:\tNumber [%011i]\n", (int)LONG_MAX);
 	y = ft_printf("  Ft:\tNumber [%011i]\n", LONG_MAX);
 	printf("Printf = %d, ft_printf = %d\n\n", x, y);
-	x = printf("  Or:\tNumber [%010d]\n", INT_MIN);
+
+	x = printf("  Or:\tNumber [%010d]\n", INT_MIN); 
 	y = ft_printf("  Ft:\tNumber [%010d]\n", INT_MIN);
 	printf("Printf = %d, ft_printf = %d\n\n", x, y);
 

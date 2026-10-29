@@ -6,7 +6,7 @@
 /*   By: mbihti <mbihti@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/19 17:43:26 by mbihti            #+#    #+#             */
-/*   Updated: 2026/10/19 19:37:29 by mbihti           ###   ########.fr       */
+/*   Updated: 2026/10/29 07:24:01 by mbihti           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ int	ft_istype(int c)
 {
 	return (ft_isflag(c) || ft_isdigit(c) || ft_isspec(c));
 }
+
 int	ft_isflag(int c)
 {
 	if (c == '-' || c == '*' || c == '-' || c == '+'
@@ -59,34 +60,6 @@ int	ft_pad_width(int total_width, int size, int zero)
 		else
 			count += ft_print_c(' ');
 		total_width--;
-	}
-	return (count);
-}
-
-int	ft_precision_flag(const char *str, int pos, t_flags *flags)
-{
-	int	count;
-
-	count = 0;
-	flags->precision = 0;
-	while (str[++pos] && ft_isdigit(str[pos]))
-	{
-		flags->precision = flags->precision * 10 + str[pos] - '0';
-		count++;
-	}
-	return (count);
-}
-
-int	ft_width_flag(const char *str, int pos, t_flags *flags)
-{
-	int	count;
-
-	count = 0;
-	flags->width = 0;
-	while (str[pos] && ft_isdigit(str[pos]))
-	{
-		flags->width = flags->width * 10 + str[pos++] - '0';
-		count++;
 	}
 	return (count);
 }

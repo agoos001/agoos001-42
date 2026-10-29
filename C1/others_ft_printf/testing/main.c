@@ -373,7 +373,7 @@ void	test_bonus_hex(void)
 	x = printf("  Or:\tNumber [%#x]\n", 0);
 	y = ft_printf("  Ft:\tNumber [%#x]\n", 0);
 	printf("Printf = %d, ft_printf = %d\n\n", x, y);
-	//x = printf("  Or:\tNumber [%#x]\n", LONG_MIN);
+	x = printf("  Or:\tNumber [%#x]\n", LONG_MIN);
 	y = ft_printf("  Ft:\tNumber [%#x]\n", LONG_MIN);
 	printf("Printf = %d, ft_printf = %d\n\n", x, y);
 	x = printf("  Or:\tNumber [%#x]\n", 42);
