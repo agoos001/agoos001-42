@@ -27,19 +27,6 @@ int	ft_print_u(const char *s_nbr, t_flags *flags)
 	return (count);
 }
 
-static int	ft_nbr_len(unsigned int nb)
-{
-	int	count;
-	
-	count = 0;
-	while (nb)
-	{
-		nb /= 10;
-		count++;
-	}
-	return (count);
-}
-
 int	g_print_unsigned(unsigned int nbr, t_flags *flags)
 {
 	int		count;

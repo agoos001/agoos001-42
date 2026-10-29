@@ -11,7 +11,9 @@
 # **************************************************************************** #
 
 CC:= cc
-# FLAGS:= -Wall -Werror -Wextra
+FLAGS:= -Wall -Werror -Wextra
+AR:= ar
+ARFLAGS:= -rcs
 
 SRC:= ft_print_char.c ft_flags_utils.c ft_printf.c ft_print_str.c ft_print_int.c \
 	  ft_print_ptr.c ft_print_unsigned.c ft_utils.c ft_print_hex.c ft_utils_1.c  \
@@ -20,20 +22,28 @@ SRC:= ft_print_char.c ft_flags_utils.c ft_printf.c ft_print_str.c ft_print_int.c
 OBJS:= $(SRC:.c=.o)
 HEADER:= ft_printf.h
 
-NAME:= ft_printflib.a
+LIBFT_PATH:= ./libft
+LIBFT:= $(LIBFT_PATH)/libft.a
 
-all: $(NAME) clean
+NAME:= libftprintf.a
 
-$(NAME): $(OBJS)
-	ar -rcs $(NAME)   $(OBJS)
 
-# %.o: %.c
-# 	$(CC) $(FLAGS) -c $< -o $@
+all: $(NAME)
+
+$(NAME): $(OBJS) $(LIBFT)
+	cp $(LIBFT) $(NAME)
+	$(AR) $(ARFLAGS) $(NAME) $(OBJS)
+
+$(LIBFT):
+	make -C $(LIBFT_PATH)
+
+%.o: %.c
+	$(CC) $(FLAGS) -c $< -o $@
 
 clean:
 	rm -rf $(OBJS)
 fclean: clean
-	rm -rf $(NAME)	
+	rm -rf $(NAME)
 re: fclean all
 
 .PHONY: all clean fclean re

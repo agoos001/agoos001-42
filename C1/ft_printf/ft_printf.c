@@ -36,7 +36,7 @@ int	ft_print_arg(char type, va_list args, t_flags *flags)
 	return (count);
 }
 
-int	ft_parse_flags(const char *str, int i, va_list args, t_flags *flags)
+int	ft_parse_flags(const char *str, int i, t_flags *flags)
 {
 	while (str[++i] && ft_istype(str[i]))
 	{
@@ -47,7 +47,7 @@ int	ft_parse_flags(const char *str, int i, va_list args, t_flags *flags)
 		if (str[i] == '+')
 			flags->plus = 1;
 		if (str[i] == ' ')
-			flags->space = 1;		
+			flags->space = 1;
 		if (str[i] == '0')
 			flags->zero = 1;
 		if (ft_isdigit(str[i]))
@@ -77,7 +77,7 @@ int	ft_parse(char *str, va_list args)
 		flags = ft_flags_init();
 		if (str[i] == '%' && str[i + 1])
 		{
-			x = ft_parse_flags(str, i, args, &flags);
+			x = ft_parse_flags(str, i, &flags);
 			if (flags.spec > 0)
 				i = x;
 			if (str[i] != '\0' && flags.spec > 0 && ft_isspec(str[i]))

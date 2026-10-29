@@ -52,6 +52,7 @@ int		ft_print_s(const char *str);
 int		ft_print_s_pre(const char *str, int precision);
 int		ft_print_sign_pre(int n, t_flags *flags);
 // i, d
+int		ft_print_int(char *s_nbr, int nbr, t_flags *flags);
 int		g_print_int(int nbr, t_flags *flags);
 int		ft_print_s_int(const char *str, t_flags *flags);
 // u
@@ -59,7 +60,8 @@ int		g_print_unsigned(unsigned int nbr, t_flags *flags);
 int		ft_print_u(const char *s_nbr, t_flags *flags);
 // x, X
 int		g_print_hex(unsigned int nb, int is_upper, t_flags *flags);
-int		ft_print_hex(char *s_nbr, unsigned int nb, int is_upper, t_flags *flags);
+int		ft_print_hex(char *s_nbr, unsigned int nb,
+			int is_upper, t_flags *flags);
 int		ft_print_h(char *s_nbr, t_flags *flags);
 // p
 int		g_print_ptr(void *ptr, t_flags *flags);

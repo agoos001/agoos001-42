@@ -63,20 +63,18 @@ int	ft_print_p(unsigned long nbr, t_flags *flags)
 
 int	g_print_ptr(void *ptr, t_flags *flags)
 {
-	int	count;	
-	unsigned long p_nbr;
+	int				count;
+	unsigned long	p_nbr;
 
 	p_nbr = (unsigned long) ptr;
 	count = 0;
-
 	if (flags->left)
 		count += ft_print_p(p_nbr, flags);
 	if (flags->width)
 	{
-		count += ft_pad_width(flags->width, ft_nbr_len(p_nbr) + 2, flags->zero);	
+		count += ft_pad_width(flags->width, ft_nbr_len(p_nbr) + 2, flags->zero);
 	}
 	if (!flags->left)
 		count += ft_print_p(p_nbr, flags);
-
 	return (count);
 }

@@ -79,7 +79,7 @@ void	ft_isupper(char *result, int is_upper)
 	}
 }
 
-char	*ft_xtoa(unsigned long nb, int	is_upper)
+char	*ft_xtoa(unsigned long nb, int is_upper)
 {
 	char	*result;
 	int		h_len;

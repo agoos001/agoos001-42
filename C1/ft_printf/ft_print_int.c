@@ -13,19 +13,11 @@
 #include "ft_printf.h"
 #include "libft/libft.h"
 
-int	g_print_int(int nbr, t_flags *flags)
+int	ft_print_int(char *s_nbr, int nbr, t_flags *flags)
 {
-	int		count;
-	char	*s_nbr;
-	long	nb;
+	int	count;
 
 	count = 0;
-	nb = nbr;
-	if (nb < 0)
-		nb = -nb;
-	s_nbr = ft_itoa_(nb);
-	if (!s_nbr)
-		return (0);
 	if (nbr < 0)
 	{
 		count += ft_print_c('-');
@@ -43,6 +35,23 @@ int	g_print_int(int nbr, t_flags *flags)
 	}
 	count += ft_print_s_int(s_nbr, flags);
 	free (s_nbr);
+	return (count);
+}
+
+int	g_print_int(int nbr, t_flags *flags)
+{
+	int		count;
+	char	*s_nbr;
+	long	nb;
+
+	count = 0;
+	nb = nbr;
+	if (nb < 0)
+		nb = -nb;
+	s_nbr = ft_itoa_(nb);
+	if (!s_nbr)
+		return (0);
+	count += ft_print_int(s_nbr, nbr, flags);
 	return (count);
 }
 

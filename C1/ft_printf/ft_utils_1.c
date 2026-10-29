@@ -31,6 +31,8 @@ char	*ft_itoa_(long nbr)
 	char	*result;
 	size_t	s_len;
 
+	if (nbr == 0)
+		return (ft_strdup("0"));
 	s_len = ft_nbr_len(nbr);
 	result = malloc(s_len + 1);
 	if (!result)
