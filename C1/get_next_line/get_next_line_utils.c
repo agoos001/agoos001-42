@@ -24,7 +24,7 @@ char	*strjoin_free(char *s1, char *s2)
 	s2_len = str_len_gnl(s2);
 	result = malloc (s1_len + s2_len + 1);
 	if (!result)
-		return (NULL);
+		return (free(s1), NULL);
 	result[cpy_string(result, s1, s2)] = '\0';
 	free(s1);
 	return (result);

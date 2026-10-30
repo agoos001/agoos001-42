@@ -27,7 +27,7 @@ char	*get_next_line(int fd)
 	{
 		bytes_read = read(fd, buffer, BUFFER_SIZE);
 		if (bytes_read <= 0)
-			return (NULL);
+			return (line);
 		line = strjoin_free(line, buffer);
 	}
 	fix_buffer(buffer);
