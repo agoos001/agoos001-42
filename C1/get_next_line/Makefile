@@ -23,6 +23,9 @@ all: $(NAME)
 
 $(NAME): $(SRC)
 	$(CC) $(CFLAGS) $(SRC) -o $(NAME)
+# gcc -g3 -O0 -fno-inline -fno-omit-frame-pointer \
+# 	$(SRC) -o $(NAME)
+	
 
 clean:
 	rm -rf $(NAME)

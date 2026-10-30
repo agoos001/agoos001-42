@@ -6,7 +6,7 @@
 /*   By: mbihti <mbihti@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/29 18:56:08 by mbihti            #+#    #+#             */
-/*   Updated: 2026/10/30 12:46:29 by mbihti           ###   ########.fr       */
+/*   Updated: 2026/10/30 21:03:47 by mbihti           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ char	*get_next_line(int fd)
 	char		*line;
 	int			bytes_read;
 
+	if (fd < 0 || BUFFER_SIZE <= 0)
+		return (NULL);
 	line = NULL;
 	if (buffer[0])
 	{

@@ -17,7 +17,7 @@
 #include <unistd.h>
 #include <stdio.h>
 
-# define BUFFER_SIZE 100000
+# define BUFFER_SIZE 1024
 
 char	*get_next_line(int fd);
 char	*strjoin_free(char *s1, char *s2);
