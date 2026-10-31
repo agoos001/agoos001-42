@@ -37,7 +37,7 @@ int main(void)
 
 	title("files/nl: ")
 	fd = open("files/nl", O_RDWR);
-	TEST(/* 1 */ gnl(fd, NULL);
+	TEST(/* 1 */ gnl(fd, "\n");
 		 /* 2 */ gnl(fd, NULL);) cout << ENDL; close(fd);
 
 	title("files/41_no_nl: ")

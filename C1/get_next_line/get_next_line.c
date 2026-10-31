@@ -11,13 +11,22 @@
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+#include <memory.h>
 
 char	*get_next_line(int fd)
 {
-	static char	buffer[BUFFER_SIZE + 1];
+	static char	*buffer;
+	static int	tm = 0;
 	char		*line;
 	int			bytes_read;
 
+	if (!tm)
+	{
+		buffer = malloc(BUFFER_SIZE + 1);
+		if (!buffer)
+			return (NULL);
+		tm = 1;
+	}
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
 	line = NULL;
@@ -30,6 +39,7 @@ char	*get_next_line(int fd)
 		bytes_read = read(fd, buffer, BUFFER_SIZE);
 		if (bytes_read <= 0)
 			break;
+		buffer[bytes_read] = '\0';
 		line = strjoin_free(line, buffer);
 		if (!line)
 			return (NULL);
@@ -37,5 +47,7 @@ char	*get_next_line(int fd)
 	if (!line || !line[0])
 		return (NULL);
 	fix_buffer(buffer);
+	if (bytes_read <= 0)
+		return (free(buffer), line);
 	return (line);
 }
