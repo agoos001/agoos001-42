@@ -29,9 +29,13 @@ char	*get_next_line(int fd)
 	{
 		bytes_read = read(fd, buffer, BUFFER_SIZE);
 		if (bytes_read <= 0)
-			return (line);
+			break;
 		line = strjoin_free(line, buffer);
+		if (!line)
+			return (NULL);
 	}
+	if (!line || !line[0])
+		return (NULL);
 	fix_buffer(buffer);
 	return (line);
 }

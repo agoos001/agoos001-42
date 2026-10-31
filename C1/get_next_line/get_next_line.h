@@ -6,7 +6,7 @@
 /*   By: mbihti <mbihti@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/30 07:39:04 by mbihti            #+#    #+#             */
-/*   Updated: 2026/10/30 12:48:00 by mbihti           ###   ########.fr       */
+/*   Updated: 2026/10/31 06:19:57 by mbihti           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include <unistd.h>
 #include <stdio.h>
 
-# define BUFFER_SIZE 1024
+// # define BUFFER_SIZE
 
 char	*get_next_line(int fd);
 char	*strjoin_free(char *s1, char *s2);

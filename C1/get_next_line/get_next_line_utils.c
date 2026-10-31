@@ -18,6 +18,8 @@ char	*strjoin_free(char *s1, char *s2)
 	size_t	s1_len;
 	size_t	s2_len;
 
+	if (!s1 && !s2)
+		return (NULL);
 	s1_len = 0;
 	if (s1)
 		s1_len = str_len_gnl(s1);
