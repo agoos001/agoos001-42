@@ -7,7 +7,11 @@
 int main()
 {
 	setbuf(stdout, NULL);
-	printf("result: %s", get_next_line(0));
-
+	char *str = get_next_line(0);
+	for (int i = 0; i < 2; i++)
+	{
+		printf("result: %s", str);
+	}
+	free(str);
 	return (0);
 }

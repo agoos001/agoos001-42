@@ -28,8 +28,7 @@ char	*strjoin_free(char *s1, char *s2)
 	if (!result)
 		return (free(s1), NULL);
 	result[cpy_string(result, s1, s2)] = '\0';
-	free(s1);
-	return (result);
+	return (free(s1), result);
 }
 
 void	fix_buffer(char *buffer)

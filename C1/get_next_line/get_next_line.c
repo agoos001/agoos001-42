@@ -18,9 +18,11 @@ char	*read_(char *buffer, int fd)
 	char	*new_buff;
 	int		bytes_read;
 	
-	new_buff = malloc(BUFFER_SIZE + 1);
+	new_buff = malloc (BUFFER_SIZE + 1);
 	if (!new_buff)
 		return (NULL);
+	#undef memset
+	memset(new_buff, '\0', BUFFER_SIZE + 1);
 	while (!strchr_gnl(new_buff))
 	{
 		bytes_read = read(fd, new_buff, BUFFER_SIZE);
@@ -28,8 +30,11 @@ char	*read_(char *buffer, int fd)
 			break;
 		new_buff[bytes_read] = '\0';
 		buffer = strjoin_free(buffer, new_buff);
-		// if (!buffer)
-		// 	return (NULL);
+		if (!buffer)
+		{
+			free(new_buff);
+			return (NULL);
+		}
 	}
 	free(new_buff);
 	return (buffer);
@@ -42,13 +47,13 @@ char *parce_line(char *buffer)
 	size_t	i;
 
 	len = str_len_gnl(buffer);
-	printf("len: %d \n", len);
+	// printf("len: %d \n", len);
 	line = malloc(len + 1);
 	if (!line)
 		return (NULL);
 	line[len] = '\0';
 	i = 0;
-	printf("buffer: %s \n", buffer);
+	// printf("buffer: %s \n", buffer);
 	while (i < len)
 	{
 		line[i] = buffer[i];
@@ -61,16 +66,28 @@ char	*get_next_line(int fd)
 {
 	static char	*buffer;
 	char		*line;
-	int			bytes_read;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
 	line = NULL;
 	buffer = read_(buffer, fd);
 	if (!buffer)
+	{
+		free(buffer);
+		buffer = NULL;
 		return (NULL);
+	}
 	line = parce_line(buffer);
-	if (!line || !line[0]) return (NULL);
+	if (!line || !line[0]) 
+	{
+		free(buffer);
+		return (NULL);
+	}
 	fix_buffer(buffer);
+    if (buffer[0] == '\0')
+    {
+        free(buffer);
+        buffer = NULL;
+    }
 	return (line);
 }
