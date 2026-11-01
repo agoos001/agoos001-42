@@ -46,7 +46,7 @@ char *parce_line(char *buffer)
 	size_t	len;
 	size_t	i;
 
-	len = str_len_gnl(buffer);
+	len = str_len_chr(buffer, '\n');
 	// printf("len: %d \n", len);
 	line = malloc(len + 1);
 	if (!line)
