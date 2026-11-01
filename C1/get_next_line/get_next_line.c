@@ -13,41 +13,64 @@
 #include "get_next_line.h"
 #include <memory.h>
 
+char	*read_(char *buffer, int fd)
+{
+	char	*new_buff;
+	int		bytes_read;
+	
+	new_buff = malloc(BUFFER_SIZE + 1);
+	if (!new_buff)
+		return (NULL);
+	while (!strchr_gnl(new_buff))
+	{
+		bytes_read = read(fd, new_buff, BUFFER_SIZE);
+		if (bytes_read <= 0)
+			break;
+		new_buff[bytes_read] = '\0';
+		buffer = strjoin_free(buffer, new_buff);
+		// if (!buffer)
+		// 	return (NULL);
+	}
+	free(new_buff);
+	return (buffer);
+}
+
+char *parce_line(char *buffer)
+{
+	char	*line;
+	size_t	len;
+	size_t	i;
+
+	len = str_len_gnl(buffer);
+	printf("len: %d \n", len);
+	line = malloc(len + 1);
+	if (!line)
+		return (NULL);
+	line[len] = '\0';
+	i = 0;
+	printf("buffer: %s \n", buffer);
+	while (i < len)
+	{
+		line[i] = buffer[i];
+		i++;
+	}
+	return (line);
+}
+
 char	*get_next_line(int fd)
 {
 	static char	*buffer;
-	static int	tm = 0;
 	char		*line;
 	int			bytes_read;
 
-	if (!tm)
-	{
-		buffer = malloc(BUFFER_SIZE + 1);
-		if (!buffer)
-			return (NULL);
-		tm = 1;
-	}
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
 	line = NULL;
-	if (buffer[0])
-	{
-		line = strjoin_free(line, buffer);
-	}
-	while (!strchr_gnl(line))
-	{
-		bytes_read = read(fd, buffer, BUFFER_SIZE);
-		if (bytes_read <= 0)
-			break;
-		buffer[bytes_read] = '\0';
-		line = strjoin_free(line, buffer);
-		if (!line)
-			return (NULL);
-	}
-	if (!line || !line[0])
+	buffer = read_(buffer, fd);
+	if (!buffer)
 		return (NULL);
+	line = parce_line(buffer);
+	if (!line || !line[0]) return (NULL);
 	fix_buffer(buffer);
-	if (bytes_read <= 0)
-		return (free(buffer), line);
 	return (line);
 }
