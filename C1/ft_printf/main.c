@@ -12,7 +12,7 @@ int main()
 	printf("\n----------- TEST: %%d -----------\n\n");
 	printf("Testing: (\"\\t%%d\\n\", 42)\n");
 	x += printf("  Or\t:\t%d\n", 42);
-	y += ft_printf("  Ft\t:\t%d\n", 42);
+	y += ft_printf("  Ft\t:\t%c\n", 'a');
 	printf("Printf = %d \n, ft_printf = %d\n\n", x, y);
 	x = 0;
 	y = 0;

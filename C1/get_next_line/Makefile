@@ -23,7 +23,7 @@ OBJS:= $(SRC:.c=.o)
 all: $(NAME)
 
 $(NAME): $(SRC)
-	$(CC) $(CFLAGS) $(SRC) -o $(NAME)
+	$(CC) $(CFLAGS)  $(SRC) -o $(NAME)
 # gcc -g3 -O0 -fno-inline -fno-omit-frame-pointer \
 # 	$(SRC) -o $(NAME)
 bonus: $(SRC_BONUS)
