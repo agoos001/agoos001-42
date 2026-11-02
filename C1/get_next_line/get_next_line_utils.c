@@ -45,11 +45,6 @@ void	fix_buffer(char *buffer)
 	}
 	
 	buffer[j] = '\0';
-	// while (j < BUFFER_SIZE + 1)
-	// {
-	// 	buffer[j] = '\0';
-	// 	j++;
-	// }
 }
 
 size_t	cpy_string(char *result, char *s1, char *s2)

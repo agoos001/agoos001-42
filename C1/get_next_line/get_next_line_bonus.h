@@ -10,25 +10,22 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-
 #ifndef GET_NEXT_LINE_BONUS
 # define GET_NEXT_LINE_BONUS
+
+#include <stdlib.h>
+#include <unistd.h>
 
 #ifndef BUFFER_SIZE
 # define BUFFER_SIZE 1024
 #endif
 
-#include <stdlib.h>
-#include <unistd.h>
-#include <stdio.h>
-
-// # define BUFFER_SIZE
+# define FD_MAX 1024
 
 char	*get_next_line(int fd);
 char	*strjoin_free(char *s1, char *s2);
 char	*strchr_gnl(char *s);
-size_t	str_len_gnl(char *str);
+size_t	str_len_chr(char *str, char c);
 size_t	cpy_string(char *result, char *s1, char *s2);
 void	fix_buffer(char *buffer);
 

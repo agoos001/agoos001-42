@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+#include "get_next_line_bonus.h"
 #include <memory.h>
 
 char	*read_(char *buffer, int fd)
@@ -23,7 +24,7 @@ char	*read_(char *buffer, int fd)
 		return (NULL);
 	#undef memset
 	memset(new_buff, '\0', BUFFER_SIZE + 1);
-	while (!strchr_gnl(new_buff))
+	while (!strchr_gnl(buffer))
 	{
 		bytes_read = read(fd, new_buff, BUFFER_SIZE);
 		if (bytes_read <= 0)
@@ -47,13 +48,11 @@ char *parce_line(char *buffer)
 	size_t	i;
 
 	len = str_len_chr(buffer, '\n');
-	// printf("len: %d \n", len);
 	line = malloc(len + 1);
 	if (!line)
 		return (NULL);
 	line[len] = '\0';
 	i = 0;
-	// printf("buffer: %s \n", buffer);
 	while (i < len)
 	{
 		line[i] = buffer[i];
@@ -88,6 +87,6 @@ char	*get_next_line(int fd)
     {
         free(buffer);
         buffer = NULL;
-    }
+	}
 	return (line);
 }

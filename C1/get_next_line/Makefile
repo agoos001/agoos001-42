@@ -16,6 +16,7 @@ CC:= cc
 NAME:= get_next_line.out
 
 SRC:= get_next_line.c get_next_line_utils.c main.c
+SRC_BONUS:= get_next_line_bonus.c get_next_line_utils_bonus.c main.c
 HDR:= get_next_line.h
 OBJS:= $(SRC:.c=.o)
 
@@ -25,7 +26,8 @@ $(NAME): $(SRC)
 	$(CC) $(CFLAGS) $(SRC) -o $(NAME)
 # gcc -g3 -O0 -fno-inline -fno-omit-frame-pointer \
 # 	$(SRC) -o $(NAME)
-	
+bonus: $(SRC_BONUS)
+	$(CC) $(CFLAGS) $(SRC_BONUS) -o $(NAME)
 
 clean:
 	rm -rf $(NAME)
