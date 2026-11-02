@@ -12,20 +12,20 @@
 
 #include "get_next_line_bonus.h"
 
-
 char	*read_(char *buffer, int fd)
 {
 	char	*new_buff;
 	int		bytes_read;
-	
+
 	new_buff = malloc (BUFFER_SIZE + 1);
 	if (!new_buff)
 		return (NULL);
+	new_buff[0] = '\0';
 	while (!strchr_gnl(new_buff))
 	{
 		bytes_read = read(fd, new_buff, BUFFER_SIZE);
 		if (bytes_read <= 0)
-			break;
+			break ;
 		new_buff[bytes_read] = '\0';
 		buffer = strjoin_free(buffer, new_buff);
 		if (!buffer)
@@ -38,7 +38,7 @@ char	*read_(char *buffer, int fd)
 	return (buffer);
 }
 
-char *parce_line(char *buffer)
+char	*parce_line(char *buffer)
 {
 	char	*line;
 	size_t	len;
@@ -58,11 +58,6 @@ char *parce_line(char *buffer)
 	return (line);
 }
 
-// void	check_all(char **buffer)
-// {
-// 	if 
-// }
-
 char	*get_next_line(int fd)
 {
 	static char	*buffer[FD_MAX];
@@ -75,11 +70,10 @@ char	*get_next_line(int fd)
 	if (!buffer[fd])
 	{
 		free(buffer[fd]);
-		buffer[fd] = NULL;
 		return (NULL);
 	}
 	line = parce_line(buffer[fd]);
-	if (!line || !line[0]) 
+	if (!line || !line[0])
 	{
 		free(buffer[fd]);
 		return (NULL);
@@ -88,8 +82,6 @@ char	*get_next_line(int fd)
 	if (buffer[fd][0] == '\0')
 	{
 		free(buffer[fd]);
-		buffer[fd] = NULL;
 	}
 	return (line);
 }
-

@@ -14,21 +14,34 @@
 #include "get_next_line_bonus.h"
 #include <memory.h>
 
+void	memset_(void *buffer, int c, size_t n)
+{
+	char	*buff;
+
+	if (!buffer)
+		return ;
+	buff = buffer;
+	while (--n)
+	{
+		*buff = (char)c;
+		buff++;
+	}
+}
+
 char	*read_(char *buffer, int fd)
 {
 	char	*new_buff;
 	int		bytes_read;
-	
+
 	new_buff = malloc (BUFFER_SIZE + 1);
 	if (!new_buff)
 		return (NULL);
-	#undef memset
-	memset(new_buff, '\0', BUFFER_SIZE + 1);
-	while (!strchr_gnl(buffer))
+	new_buff[0] = '\0';
+	while (!strchr_gnl(new_buff))
 	{
 		bytes_read = read(fd, new_buff, BUFFER_SIZE);
 		if (bytes_read <= 0)
-			break;
+			break ;
 		new_buff[bytes_read] = '\0';
 		buffer = strjoin_free(buffer, new_buff);
 		if (!buffer)
@@ -41,7 +54,7 @@ char	*read_(char *buffer, int fd)
 	return (buffer);
 }
 
-char *parce_line(char *buffer)
+char	*parce_line(char *buffer)
 {
 	char	*line;
 	size_t	len;
@@ -73,20 +86,19 @@ char	*get_next_line(int fd)
 	if (!buffer)
 	{
 		free(buffer);
-		buffer = NULL;
 		return (NULL);
 	}
 	line = parce_line(buffer);
-	if (!line || !line[0]) 
+	if (!line || !line[0])
 	{
 		free(buffer);
 		return (NULL);
 	}
 	fix_buffer(buffer);
-    if (buffer[0] == '\0')
-    {
-        free(buffer);
-        buffer = NULL;
+	if (buffer[0] == '\0')
+	{
+		free(buffer);
+		buffer = NULL;
 	}
 	return (line);
 }

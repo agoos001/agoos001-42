@@ -10,15 +10,15 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_BONUS
-# define GET_NEXT_LINE_BONUS
+#ifndef GET_NEXT_LINE_BONUS_H
+# define GET_NEXT_LINE_BONUS_H
 
-#include <stdlib.h>
-#include <unistd.h>
+# include <stdlib.h>
+# include <unistd.h>
 
-#ifndef BUFFER_SIZE
-# define BUFFER_SIZE 1024
-#endif
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 1024
+# endif
 
 # define FD_MAX 1024
 

@@ -43,7 +43,6 @@ void	fix_buffer(char *buffer)
 		buffer[j] = buffer[j + i];
 		j++;
 	}
-	
 	buffer[j] = '\0';
 }
 
