@@ -36,8 +36,12 @@ char	*ft_utoa(unsigned int nb)
 	size_t	nb_len;
 	size_t	i;
 
+	if (nb == 0)
+		return (ft_strdup("0"));
 	nb_len = nbr_len(nb);
 	result = malloc(nb_len + 1);
+	if (!result)
+		return (NULL);
 	result[nb_len] = '\0';
 	i = nb_len - 1;
 	while (nb)
@@ -84,6 +88,8 @@ char	*ft_xtoa(unsigned long nb, int is_upper)
 	char	*result;
 	int		h_len;
 
+	if (nb == 0)
+		return (ft_strdup("0"));
 	h_len = hex_len(nb);
 	result = malloc(h_len + 1);
 	if (!result)

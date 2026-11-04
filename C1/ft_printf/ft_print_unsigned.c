@@ -41,6 +41,7 @@ int	g_print_unsigned(unsigned int nbr, t_flags *flags)
 	if (flags->precision == 0 && nbr == 0)
 	{
 		count += ft_pad_width(flags->width, 0, flags->zero);
+		free(s_nbr);
 		return (count);
 	}
 	if (flags->left == 1)
@@ -51,5 +52,6 @@ int	g_print_unsigned(unsigned int nbr, t_flags *flags)
 		count += ft_pad_width(flags->width, s_len, 0);
 	if (flags->left == 0)
 		count += ft_print_u(s_nbr, flags);
+	free(s_nbr);
 	return (count);
 }

@@ -11,8 +11,6 @@
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-#include "get_next_line_bonus.h"
-#include <memory.h>
 
 void	memset_(void *buffer, int c, size_t n)
 {

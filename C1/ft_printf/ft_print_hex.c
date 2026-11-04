@@ -82,5 +82,6 @@ int	g_print_hex(unsigned int nb, int is_upper, t_flags *flags)
 	if (!s_nbr)
 		return (0);
 	count += ft_print_hex(s_nbr, nb, is_upper, flags);
+	free(s_nbr);
 	return (count);
 }

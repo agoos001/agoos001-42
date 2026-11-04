@@ -20,15 +20,14 @@ setbuf(stdout, NULL);
 		// printf("fd1: %s\n", str1);
 		// free(str);
 		// free(str1);
-	int fd = open("tm.txt", O_RDONLY);
+	// int fd = open("tm.txt", O_RDONLY);
 	// int	fd1 = open("tm1.txt", O_RDONLY);
 	// for (int i = 0; i < 1; i++)
 	// {
-		str = get_next_line(fd);
+		str = get_next_line(0);
 		printf("fd: %s\n", str);
 		// free(str);
-		close(fd);
-		str = get_next_line(fd);
+		str = get_next_line(0);
 		printf("fd: %s\n", str);
 		// free(str);
 	// }
