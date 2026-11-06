@@ -86,7 +86,11 @@ int	ft_parse(char *str, va_list args)
 				count += ft_print_c(str[i]);
 		}
 		else
+		{
+			if (str[i] == '%' && !str[i + 1])
+				return (-1);
 			count += ft_print_c(str[i]);
+		}
 	}
 	return (count);
 }
