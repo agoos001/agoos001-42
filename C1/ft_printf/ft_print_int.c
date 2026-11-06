@@ -23,12 +23,12 @@ int	ft_print_int(char *s_nbr, int nbr, t_flags *flags)
 		count += ft_print_c('-');
 		flags->width -= 1;
 	}
-	if (flags->plus && ft_isdigit(s_nbr[0]))
+	if (flags->plus && nbr >= 0)
 	{
 		count += ft_print_c('+');
 		flags->width -= 1;
 	}
-	if (flags->space && ft_isdigit(s_nbr[0]))
+	if (flags->space && !flags->plus && nbr >= 0)
 	{
 		count += ft_print_c(' ');
 		flags->width -= 1;
