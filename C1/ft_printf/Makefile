@@ -11,7 +11,7 @@
 # **************************************************************************** #
 
 CC:= cc
-# FLAGS:= -Wall -Werror -Wextra
+FLAGS:= -Wall -Werror -Wextra
 AR:= ar
 ARFLAGS:= -rcs
 

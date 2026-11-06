@@ -63,12 +63,11 @@ int	ft_parse_flags(const char *str, int i, t_flags *flags)
 	return (i);
 }
 
-int	ft_parse(char *str, va_list args)
+int	ft_parse(const char *str, va_list args, t_flags flags)
 {
 	int		i;
 	int		x;
 	int		count;
-	t_flags	flags;
 
 	i = -1;
 	count = 0;
@@ -85,12 +84,10 @@ int	ft_parse(char *str, va_list args)
 			else if (str[i])
 				count += ft_print_c(str[i]);
 		}
+		else if (str[i] == '%' && !str[i + 1])
+			return (-1);
 		else
-		{
-			if (str[i] == '%' && !str[i + 1])
-				return (-1);
 			count += ft_print_c(str[i]);
-		}
 	}
 	return (count);
 }
@@ -99,17 +96,13 @@ int	ft_printf(const char *format, ...)
 {
 	va_list	args;
 	int		count;
-	char	*str;
+	t_flags	flags;
 
 	if (!format || !(*format))
 		return (0);
-	str = ft_strdup(format);
-	if (!str)
-		return (0);
 	count = 0;
 	va_start(args, format);
-	count = ft_parse(str, args);
+	count = ft_parse(format, args, flags);
 	va_end(args);
-	free(str);
 	return (count);
 }

@@ -26,6 +26,7 @@ int	ft_nbr_len(long nbr)
 	}
 	return (count);
 }
+
 char	*ft_itoa_(long nbr)
 {
 	char	*result;

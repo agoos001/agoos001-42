@@ -15,13 +15,10 @@
 
 # include <stdarg.h>
 # include <unistd.h>
-# include <stdlib.h>
-# include <stdio.h>
 # include "libft/libft.h"
 
 # define PTRNULL "(nil)"
 
-/* ---------- FLAGS --------------------- */
 typedef struct s_flags
 {
 	int	spec;
@@ -38,19 +35,16 @@ t_flags	ft_flags_init(void);
 int		ft_width_flag(const char *str, int pos, t_flags *flags);
 int		ft_precision_flag(const char *str, int pos, t_flags *flags);
 
-/* ---------- PRINTF -------------------- */
 int		ft_printf(const char *format, ...);
 int		ft_print_arg(char type, va_list args, t_flags *flags);
 
-/* ---------- PRINT SPECIFIERS ---------- */
 // c
 int		ft_print_char(char c, t_flags *flags);
 int		ft_print_c(char c);
 // s
 int		g_print_str(const char *str, t_flags *flags);
 int		ft_print_s(const char *str);
-int		ft_print_s_pre(const char *str, int precision);
-int		ft_print_sign_pre(int n, t_flags *flags);
+int		ft_print_s_pre_width(const char *s, int precision);
 // i, d
 int		ft_print_int(char *s_nbr, int nbr, t_flags *flags);
 int		g_print_int(int nbr, t_flags *flags);
@@ -68,17 +62,13 @@ int		g_print_ptr(void *ptr, t_flags *flags);
 int		ft_print_p(unsigned long int n, t_flags *flags);
 void	ft_print_add(unsigned long nbr);
 
-/* ---------- HELPER FUNCTIONS ---------- */
 char	*ft_itoa_(long nbr);
 char	*ft_utoa(unsigned int nb);
 char	*ft_xtoa(unsigned long int nb, int is_upper);
-int		ft_hex_len(unsigned int n);
-int		ft_ptr_len(unsigned long int n);
 int		ft_istype(int c);
 int		ft_isspec(int c);
 int		ft_isflag(int c);
 
-/* ---------- FLAG FUNCTIONS ------------ */
 int		ft_pad_width(int total_width, int size, int zero);
 
 #endif
